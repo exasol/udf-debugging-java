@@ -1,0 +1,40 @@
+This project has the following dependencies:
+  Apache Commons Compress under Apache License, Version 2.0
+  asm under BSD-3-Clause
+  asm-analysis under BSD-3-Clause
+  asm-commons under BSD-3-Clause
+  asm-tree under BSD-3-Clause
+  Duct Tape under MIT
+  EXASolution JDBC Driver under EXAClient License
+  Hamcrest Core under New BSD License
+  JaCoCo :: Agent under Eclipse Public License 2.0
+  JaCoCo :: Core under Eclipse Public License 2.0
+  Java Native Access under LGPL, version 2.1 or Apache License v2.0
+  Java Native Access Platform under LGPL, version 2.1 or Apache License v2.0
+  JetBrains Java Annotations under The Apache Software License, Version 2.0
+  JSR 374 (JSON Processing) API under Dual license consisting of the CDDL v1.1 and GPL v2
+  JUnit under Eclipse Public License 1.0
+  JUnit Jupiter API under Eclipse Public License v2.0
+  JUnit Jupiter Engine under Eclipse Public License v2.0
+  JUnit Jupiter Params under Eclipse Public License v2.0
+  JUnit Platform Commons under Eclipse Public License v2.0
+  JUnit Platform Engine API under Eclipse Public License v2.0
+  JUnit Platform Launcher under Eclipse Public License v2.0
+  JUnit Platform Runner under Eclipse Public License v2.0
+  JUnit Platform Suite API under Eclipse Public License v2.0
+  junixsocket-common under Apache License, Version 2.0
+  junixsocket-native-common under Apache License, Version 2.0
+  Native Library Loader under CC0 1.0 Universal License
+  org.apiguardian:apiguardian-api under The Apache License, Version 2.0
+  org.opentest4j:opentest4j under The Apache License, Version 2.0
+  SLF4J API Module under MIT License
+  SLF4J JDK14 Binding under MIT License
+  TCP to Unix Socket Proxy under MIT
+  Test containers for Exasol on Docker under MIT
+  Testcontainers :: Database-Commons under MIT
+  Testcontainers :: JDBC under MIT
+  Testcontainers :: JUnit Jupiter Extension under MIT
+  Testcontainers Core under MIT
+  udf-debugging-java under MIT
+  Visible Assertions under MIT
+
