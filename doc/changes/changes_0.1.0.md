@@ -5,3 +5,4 @@ Code name: Added push-down testing util
 ## Features / Enhancements
 
 * #1: Added push-down testing util
+* #2: Added CI setup
