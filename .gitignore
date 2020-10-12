@@ -1,4 +1,5 @@
 /target/
+pom.xml.versionsBackup
 
 # Eclipse and Maven
 .classpath
@@ -13,10 +14,6 @@ dependency-reduced-pom.xml
 # Intellij recommends to share iml files, however, better don't share files which might be outdated
 *.iml
 
-# Integration tests
-src/test/resources/integration/driver/hive/*.jar
-src/test/resources/integration/driver/oracle/*.jar
-src/test/resources/integration/driver/oracle/*.zip
 
 # Others
 .DS_Store
