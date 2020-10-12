@@ -1,4 +1,5 @@
 /target/
+pom.xml.versionsBackup
 
 # Eclipse and Maven
 .classpath
