@@ -2,15 +2,15 @@ language: java
 sudo: required
 matrix:
   include:
-    - jdk: openjdk11
+  - jdk: openjdk11
 addons:
   sonarcloud:
     organization: exasol
-
+    token:
+      secure: AgZwCb56VbdlHlyTAsRi99yVB/+/inLhki2+mzMWf5BJ8IZhjJNN5zRP+gmjf0sjHwKtL3NdoPeqjMy3Q4+UxhydEd3mbZ8NaIYeQ3ZBE9zBZqBCEG15TfVCL9gSNkXuFfmpdyQt+MdnzkL9/vUKlMajfUuywDj/4FOzCW6PfPrDCvxHEUwkmWYLCTqxnDAGJu6ogb8RrpOqoWSOyUH2hMm+Qm5YKY9+xn+UjfD0kApv868BF1g7Jgz6PYv1hiQMwPjTNlI1ISuom3RXY5QtNSchB7/ZLK3KXpbpwjDNh+AfDFCrrCNiHM24kIp4gwJoyjg4wh/ao3umTalIR3iVErMmz7F/Mbd7ZJHNFC9rqXbgzrj1rySYJ0QemeI7FvTqdRQTaXENlz45sw3YRf4PU/Palpga/RCqwFYxuF5wErSngMOFVvaxjxYUDrNz3aO4v1ZYCOksKM7LhnOPE+sqrZAWBRDU+iKfevoLXUpfWMfedKYVQAqO+tqgolxPSUVmyfzgQC1vqhVrcDbXHFXfE5hJdCUd9YN4PJo98EtUXou4SGp6dpwRn/D9M3nZjOsfpahPFMYYzfaBpIIG6AEN6eGVbE9AA94x/tMKdhlUcEiHBA57YbyvHly8wA8wHoMWFWe7QxE7cP3afi/ognfHRb77/Ay0ggcG1CT9VeCov6A=
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent org.jacoco:jacoco-maven-plugin:prepare-agent-integration
-    verify
-    #sonar:sonar -Dsonar.login=${SONAR_TOKEN} -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,target/site/jacoco-udf/jacoco.xml
+    verify sonar:sonar -Dsonar.login=${SONAR_TOKEN} -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,target/site/jacoco-udf/jacoco.xml
 cache:
   directories:
     - "$HOME/.m2"
