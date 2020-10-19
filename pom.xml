@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>udf-debugging-java</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-javat</url>
@@ -131,9 +131,7 @@
                 <configuration>
                     <!-- Set the highest log level for coverage testing, so that we
                       have a chance to reach branches in the logging lambdas too. -->
-                    <argLine>-Djava.util.logging.config.file=src/test/resources/logging.properties
-                        ${argLine}
-                    </argLine>
+                    <argLine>-Djava.util.logging.config.file=src/test/resources/logging.properties ${argLine}</argLine>
                     <excludes>
                         <exclude>**IT.java</exclude>
                     </excludes>
@@ -344,7 +342,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>0.1.0</version>
+                <version>0.2.0</version>
                 <executions>
                     <execution>
                         <goals>

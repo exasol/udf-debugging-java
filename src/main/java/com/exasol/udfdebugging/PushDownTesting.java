@@ -24,7 +24,7 @@ public class PushDownTesting {
             final String pushdownJson = pushDownSqlResult.getString("PUSHDOWN_JSON");
             try (final JsonReader reader = Json.createReader(new StringReader(pushdownJson))) {
                 final JsonObject response = reader.readArray().get(2).asJsonObject();
-                return response.getJsonObject("pushdownRequest").getString("filter_expr_string_for_debug");
+                return response.getJsonObject("pushdownRequest").getString("filter_expr_string_for_debug", "");
             }
         }
     }
