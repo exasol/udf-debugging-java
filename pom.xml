@@ -121,6 +121,12 @@
             <version>${jacoco.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -362,19 +368,20 @@
                <configuration>
                    <noticeTemplate>NOTICE.template</noticeTemplate>
 
-                   <licenseMapping>
-                       <param>https://source.jasig.org/licenses/license-mappings.xml</param>
-                   </licenseMapping>
-               </configuration>
-               <executions>
-                   <execution>
-                       <phase>package</phase>
-                       <goals>
-                           <goal>check</goal>
-                       </goals>
-                   </execution>
-               </executions>
-           </plugin>-->
+                    <licenseMapping>
+                        <param>https://source.jasig.org/licenses/license-mappings.xml</param>
+                    </licenseMapping>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
         </plugins>
         <testResources>
             <testResource>
