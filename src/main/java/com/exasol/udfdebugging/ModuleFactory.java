@@ -5,7 +5,7 @@ public interface ModuleFactory {
     /**
      * Get if this module is enabled by system property.
      * 
-     * @return {@true} if this module is enabled
+     * @return {@code true} if this module is enabled
      */
     public boolean isEnabled();
 
