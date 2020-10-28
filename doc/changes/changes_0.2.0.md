@@ -1,6 +1,6 @@
-# udf-debugging-java 0.2.0, released 2020-XX-XX
+# udf-debugging-java 0.2.0, released 2020-10-28
  
-Code name: 
+Code name: Test setup for UDF debugging 
 
 ## Features / Enhancements
 
