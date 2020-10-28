@@ -15,7 +15,6 @@ public class UdfTestSetup {
     private static final List<ModuleFactory> AVAILABLE_MODULES = List.of(new DebuggingModuleFactory());
     private static final Logger LOGGER = LoggerFactory.getLogger(UdfTestSetup.class);
     private final List<Module> enabledModules;
-    private final String testHostIpAddress;
 
     /**
      * Create a new instance of {@link UdfTestSetup}.
@@ -23,7 +22,6 @@ public class UdfTestSetup {
      * @param testHostIpAddress IP address of the host running this UDF Test Setup under which UDFs can reach it
      */
     public UdfTestSetup(final String testHostIpAddress) {
-        this.testHostIpAddress = testHostIpAddress;
         this.enabledModules = AVAILABLE_MODULES.stream().filter(ModuleFactory::isEnabled)
                 .map(moduleFactory -> moduleFactory.buildModule(testHostIpAddress)).collect(Collectors.toList());
         printInfoMessage();
