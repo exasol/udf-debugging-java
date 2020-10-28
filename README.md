@@ -30,7 +30,7 @@ Typically, you do so by appending `-D<PROPERTY_NAME>="true"` to your JVM call.
 
 System property: `test.debug`
 
-This module adds instructs the UDFs JVM to connect to a Java debugger listening on port 8000 on you machine, running the tests.
+This module instructs the UDF JVMs to connect to a Java debugger listening on the default port 8000 on you machine, running the tests.
 
 
 ## Additional Information
