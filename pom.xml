@@ -16,6 +16,7 @@
         <junit.platform.version>1.6.2</junit.platform.version>
         <vscommon.version>11.0.0</vscommon.version>
         <gpg.skip>true</gpg.skip>
+        <jacoco.version>0.8.6</jacoco.version>
         <org.testcontainers.version>1.14.3</org.testcontainers.version>
         <surefire.and.failsafe.plugin.version>3.0.0-M4</surefire.and.failsafe.plugin.version>
     </properties>
@@ -83,12 +84,12 @@
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>org.jacoco.core</artifactId>
-            <version>0.8.6</version>
+            <version>${jacoco.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>org.jacoco.agent</artifactId>
-            <version>0.8.6</version>
+            <version>${jacoco.version}</version>
             <classifier>runtime</classifier>
             <scope>test</scope>
         </dependency>
@@ -188,7 +189,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.6</version>
+                <version>${jacoco.version}</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
