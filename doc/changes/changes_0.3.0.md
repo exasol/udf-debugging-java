@@ -17,3 +17,4 @@ Code name: Test setup for UDF code coverage
 * Added `com.exasol:test-db-builder-java`:2.0.0
 * Updated `org.jacoco:jacoco-maven-plugin`:0.8.5 to 0.8.6
 * Added `org.sonatype.plugins:nexus-staging-maven-plugin`:1.6.8
+* Updated `org.jacoco:org.jacoco.agent`:0.8.5 to 0.8.6
