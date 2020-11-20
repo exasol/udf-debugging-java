@@ -57,6 +57,8 @@ final class JacocoServer implements Runnable {
         }
     }
 
+    @SuppressWarnings("java:S2189") // while loop has no end condition since the server should run forever (until test
+                                    // are done)
     @Override
     public void run() {
         try (final ServerSocket server = new ServerSocket(PORT)) {
