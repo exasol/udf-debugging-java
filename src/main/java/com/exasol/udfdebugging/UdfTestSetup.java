@@ -23,10 +23,11 @@ public class UdfTestSetup {
      * Create a new instance of {@link UdfTestSetup}.
      * 
      * @param testHostIpAddress IP address of the host running this UDF Test Setup under which UDFs can reach it
+     * @param bucket            BucketFS bucket to upload resource to
      */
-    public UdfTestSetup(final String testHostIpAddress, final Bucket bucketFs) {
+    public UdfTestSetup(final String testHostIpAddress, final Bucket bucket) {
         this.enabledModules = AVAILABLE_MODULES.stream().filter(ModuleFactory::isEnabled)
-                .map(moduleFactory -> moduleFactory.buildModule(testHostIpAddress, bucketFs))
+                .map(moduleFactory -> moduleFactory.buildModule(testHostIpAddress, bucket))
                 .collect(Collectors.toList());
         printInfoMessage();
     }
