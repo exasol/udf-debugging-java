@@ -1,5 +1,7 @@
 package com.exasol.udfdebugging;
 
+import com.exasol.bucketfs.Bucket;
+
 public interface ModuleFactory {
 
     /**
@@ -20,7 +22,8 @@ public interface ModuleFactory {
      * Build the {@link Module}.
      * 
      * @param testHostIpAddress IP address of the host running this UDF Test Setup under which UDFs can reach it
+     * @param bucket            BucketFS bucket to upload resource to
      * @return built {@link Module}
      */
-    public Module buildModule(final String testHostIpAddress);
+    public Module buildModule(final String testHostIpAddress, Bucket bucket);
 }

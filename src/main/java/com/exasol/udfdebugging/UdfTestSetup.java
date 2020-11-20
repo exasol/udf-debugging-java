@@ -6,13 +6,16 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.exasol.bucketfs.Bucket;
+import com.exasol.udfdebugging.modules.coverage.CoverageModuleFactory;
 import com.exasol.udfdebugging.modules.debugging.DebuggingModuleFactory;
 
 /**
  * Test setup for testing UDFs in the database.
  */
 public class UdfTestSetup {
-    private static final List<ModuleFactory> AVAILABLE_MODULES = List.of(new DebuggingModuleFactory());
+    private static final List<ModuleFactory> AVAILABLE_MODULES = List.of(new DebuggingModuleFactory(),
+            new CoverageModuleFactory());
     private static final Logger LOGGER = LoggerFactory.getLogger(UdfTestSetup.class);
     private final List<Module> enabledModules;
 
@@ -21,9 +24,10 @@ public class UdfTestSetup {
      * 
      * @param testHostIpAddress IP address of the host running this UDF Test Setup under which UDFs can reach it
      */
-    public UdfTestSetup(final String testHostIpAddress) {
+    public UdfTestSetup(final String testHostIpAddress, final Bucket bucketFs) {
         this.enabledModules = AVAILABLE_MODULES.stream().filter(ModuleFactory::isEnabled)
-                .map(moduleFactory -> moduleFactory.buildModule(testHostIpAddress)).collect(Collectors.toList());
+                .map(moduleFactory -> moduleFactory.buildModule(testHostIpAddress, bucketFs))
+                .collect(Collectors.toList());
         printInfoMessage();
     }
 

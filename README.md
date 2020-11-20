@@ -15,7 +15,9 @@ You can get the dependency declaration by clicking the maven badge above.
 Typically, you use this package together with [test-db-builder-java](https://github.com/exasol/test-db-builder-java) and [exasol-testcontainers](https://github.com/exasol/exasol-testcontainers) as follows:
 
 ```java
-final UdfTestSetup udfTestSetup = new UdfTestSetup(getTestHostIp());
+
+private static final ExasolContainer<? extends ExasolContainer<?>> EXASOL = new ExasolContainer<>();
+final UdfTestSetup udfTestSetup = new UdfTestSetup(getTestHostIp(), EXASOL.getDefaultBucket());
 final ExasolObjectFactory testDbBuilder = new ExasolObjectFactory(EXASOL.createConnection(), 
     ExasolObjectConfiguration.builder().withJvmOptions(udfTestSetup.getJvmOptions()).build());
 ```
@@ -31,6 +33,14 @@ Typically, you do so by appending `-D<PROPERTY_NAME>="true"` to your JVM call.
 System property: `test.debug`
 
 This module instructs the UDF JVMs to connect to a Java debugger listening on the default port 8000 on you machine, running the tests.
+
+### Code Coverage
+
+System property: `test.coverage`
+
+This module installs a jacoco agent to the UDF JVM and receives the execution data using a TCP socket.
+
+This module requires some maven configuration. Use the [project-keeper's](https://github.com/exasol/project-keeper-maven-plugin) `udf_coverage` module to verify it.   
 
 
 ## Additional Information
