@@ -40,7 +40,7 @@ System property: `test.coverage`
 
 This module installs a jacoco agent to the UDF JVM and receives the execution data using a TCP socket.
 
-This module requires some maven configuration. Use the [project-keeper's](https://github.com/exasol/project-keeper-maven-plugin) `udf_coverage` module to verify it.   
+This module requires additional maven configuration. Use the [project-keeper's](https://github.com/exasol/project-keeper-maven-plugin) `udf_coverage` module to verify it.   
 
 
 ## Additional Information
