@@ -21,9 +21,9 @@ public interface ModuleFactory {
     /**
      * Build the {@link Module}.
      * 
-     * @param testHostIpAddress IP address of the host running this UDF Test Setup under which UDFs can reach it
-     * @param bucket            BucketFS bucket to upload resource to
+     * @param hostPortProxyFactory Proxy factory that makes ports of the test host available in the container
+     * @param bucket               BucketFS bucket to upload resource to
      * @return built {@link Module}
      */
-    public Module buildModule(final String testHostIpAddress, Bucket bucket);
+    public Module buildModule(final HostPortProxyFactory hostPortProxyFactory, Bucket bucket);
 }
