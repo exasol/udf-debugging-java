@@ -1,7 +1,7 @@
 package com.exasol.udfdebugging.modules.debugging;
 
 import com.exasol.bucketfs.Bucket;
-import com.exasol.udfdebugging.HostPortProxyFactory;
+import com.exasol.udfdebugging.LocalServiceExposer;
 import com.exasol.udfdebugging.Module;
 import com.exasol.udfdebugging.modules.AbstractModuleFactory;
 
@@ -14,7 +14,7 @@ public class DebuggingModuleFactory extends AbstractModuleFactory {
     }
 
     @Override
-    public Module buildModule(final HostPortProxyFactory hostPortProxyFactory, final Bucket bucket) {
-        return new DebuggingModule(hostPortProxyFactory);
+    public Module buildModule(final LocalServiceExposer localServiceExposer, final Bucket bucket) {
+        return new DebuggingModule(localServiceExposer);
     }
 }

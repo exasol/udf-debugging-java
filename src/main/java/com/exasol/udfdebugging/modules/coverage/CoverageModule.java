@@ -21,14 +21,15 @@ public class CoverageModule implements Module {
     /**
      * Create a new instance of {@link CoverageModule}.
      * 
-     * @param hostPortProxyFactory Proxy factory that makes ports of the test host available in the container
-     * @param bucket               Bucket to upload the agent to
+     * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
+     * @param bucket              Bucket to upload the agent to
      */
-    public CoverageModule(final HostPortProxyFactory hostPortProxyFactory, final Bucket bucket) {
+    public CoverageModule(final LocalServiceExposer localServiceExposer, final Bucket bucket) {
         assertJacocoAgentExists();
         uploadAgentToBucketFs(bucket);
         JacocoServer.startIfNotRunning();
-        final HostPortProxy proxyForHostPort = hostPortProxyFactory.getProxyForHostPort(JacocoServer.PORT);
+        final ExposedServiceAddress proxyForHostPort = localServiceExposer
+                .exposeLocalServiceToDatabase(JacocoServer.PORT);
         this.jvmOption = "-javaagent:/buckets/" + bucket.getBucketFsName() + "/" + bucket.getBucketName() + "/"
                 + JACOCO_AGENT_NAME + "=output=tcpclient,address=" + proxyForHostPort.getHostName() + ",port="
                 + proxyForHostPort.getPort();

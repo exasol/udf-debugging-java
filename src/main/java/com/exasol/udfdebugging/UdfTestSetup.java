@@ -26,18 +26,18 @@ public class UdfTestSetup {
      * @param bucket            BucketFS bucket to upload resource to
      */
     public UdfTestSetup(final String testHostIpAddress, final Bucket bucket) {
-        this(port -> new HostPortProxy(testHostIpAddress, port), bucket);
+        this(port -> new ExposedServiceAddress(testHostIpAddress, port), bucket);
     }
 
     /**
      * Create a new instance of {@link UdfTestSetup}.
      * 
-     * @param hostPortProxyFactory Proxy factory that makes ports of the test host available in the container
-     * @param bucket               BucketFS bucket to upload resource to
+     * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
+     * @param bucket              BucketFS bucket to upload resource to
      */
-    public UdfTestSetup(final HostPortProxyFactory hostPortProxyFactory, final Bucket bucket) {
+    public UdfTestSetup(final LocalServiceExposer localServiceExposer, final Bucket bucket) {
         this.enabledModules = AVAILABLE_MODULES.stream().filter(ModuleFactory::isEnabled)
-                .map(moduleFactory -> moduleFactory.buildModule(hostPortProxyFactory, bucket))
+                .map(moduleFactory -> moduleFactory.buildModule(localServiceExposer, bucket))
                 .collect(Collectors.toList());
         printInfoMessage();
     }

@@ -21,9 +21,9 @@ public interface ModuleFactory {
     /**
      * Build the {@link Module}.
      * 
-     * @param hostPortProxyFactory Proxy factory that makes ports of the test host available in the container
-     * @param bucket               BucketFS bucket to upload resource to
+     * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
+     * @param bucket              BucketFS bucket to upload resource to
      * @return built {@link Module}
      */
-    public Module buildModule(final HostPortProxyFactory hostPortProxyFactory, Bucket bucket);
+    public Module buildModule(final LocalServiceExposer localServiceExposer, Bucket bucket);
 }

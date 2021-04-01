@@ -17,8 +17,8 @@ import com.exasol.containers.ExasolContainer;
 import com.exasol.dbbuilder.dialects.exasol.*;
 import com.exasol.dbbuilder.dialects.exasol.udf.UdfScript;
 import com.exasol.errorreporting.ExaError;
-import com.exasol.udfdebugging.HostPortProxy;
-import com.exasol.udfdebugging.HostPortProxyFactory;
+import com.exasol.udfdebugging.ExposedServiceAddress;
+import com.exasol.udfdebugging.LocalServiceExposer;
 
 @Testcontainers
 class CoverageModuleIT {
@@ -27,8 +27,8 @@ class CoverageModuleIT {
     private static final String SCHEMA_NAME = "TEST";
     private static final String UDF_NAME = "HELLO_WORLD";
 
-    private static HostPortProxyFactory getHostPortProxy() {
-        return port -> new HostPortProxy(EXASOL.getHostIp(), port);
+    private static LocalServiceExposer getHostPortProxy() {
+        return port -> new ExposedServiceAddress(EXASOL.getHostIp(), port);
     }
 
     @Test
