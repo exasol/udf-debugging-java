@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import com.exasol.bucketfs.Bucket;
 import com.exasol.bucketfs.BucketAccessException;
 import com.exasol.errorreporting.ExaError;
+import com.exasol.udfdebugging.*;
 import com.exasol.udfdebugging.Module;
 
 /**
@@ -20,15 +21,18 @@ public class CoverageModule implements Module {
     /**
      * Create a new instance of {@link CoverageModule}.
      * 
-     * @param testHostIpAddress IP address of the test host from inside of the database
-     * @param bucket            Bucket to upload the agent to
+     * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
+     * @param bucket              Bucket to upload the agent to
      */
-    public CoverageModule(final String testHostIpAddress, final Bucket bucket) {
+    public CoverageModule(final LocalServiceExposer localServiceExposer, final Bucket bucket) {
         assertJacocoAgentExists();
         uploadAgentToBucketFs(bucket);
         JacocoServer.startIfNotRunning();
+        final ExposedServiceAddress proxyForHostPort = localServiceExposer
+                .exposeLocalServiceToDatabase(JacocoServer.PORT);
         this.jvmOption = "-javaagent:/buckets/" + bucket.getBucketFsName() + "/" + bucket.getBucketName() + "/"
-                + JACOCO_AGENT_NAME + "=output=tcpclient,address=" + testHostIpAddress + ",port=" + JacocoServer.PORT;
+                + JACOCO_AGENT_NAME + "=output=tcpclient,address=" + proxyForHostPort.getHostName() + ",port="
+                + proxyForHostPort.getPort();
     }
 
     private void assertJacocoAgentExists() {

@@ -3,12 +3,9 @@ package com.exasol.udfdebugging.modules.coverage;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.jacoco.core.data.ExecutionDataReader;
@@ -17,12 +14,11 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import com.exasol.containers.ExasolContainer;
-import com.exasol.dbbuilder.dialects.exasol.ExasolObjectConfiguration;
-import com.exasol.dbbuilder.dialects.exasol.ExasolObjectFactory;
-import com.exasol.dbbuilder.dialects.exasol.ExasolSchema;
+import com.exasol.dbbuilder.dialects.exasol.*;
 import com.exasol.dbbuilder.dialects.exasol.udf.UdfScript;
 import com.exasol.errorreporting.ExaError;
-import com.github.dockerjava.api.model.ContainerNetwork;
+import com.exasol.udfdebugging.ExposedServiceAddress;
+import com.exasol.udfdebugging.LocalServiceExposer;
 
 @Testcontainers
 class CoverageModuleIT {
@@ -31,20 +27,15 @@ class CoverageModuleIT {
     private static final String SCHEMA_NAME = "TEST";
     private static final String UDF_NAME = "HELLO_WORLD";
 
-    private static String getTestHostIpFromInsideExasol() {
-        final Map<String, ContainerNetwork> networks = EXASOL.getContainerInfo().getNetworkSettings().getNetworks();
-        if (networks.size() == 0) {
-            return null;
-        }
-        return networks.values().iterator().next().getGateway();
+    private static LocalServiceExposer getHostPortProxy() {
+        return port -> new ExposedServiceAddress(EXASOL.getHostIp(), port);
     }
 
     @Test
     void testCoverageReportIsWritten() throws SQLException, IOException, InterruptedException {
         deleteExecutionFile();
         final Connection connection = EXASOL.createConnection();
-        final CoverageModule coverageModule = new CoverageModule(getTestHostIpFromInsideExasol(),
-                EXASOL.getDefaultBucket());
+        final CoverageModule coverageModule = new CoverageModule(getHostPortProxy(), EXASOL.getDefaultBucket());
         final ExasolObjectFactory exasolObjectFactory = new ExasolObjectFactory(connection, ExasolObjectConfiguration
                 .builder().withJvmOptions(coverageModule.getJvmOptions().toArray(String[]::new)).build());
         final ExasolSchema schema = exasolObjectFactory.createSchema(SCHEMA_NAME);
