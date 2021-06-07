@@ -20,7 +20,7 @@ public class JProfilerModule implements Module {
 
     private void uploadProfiler(final Bucket bucket) {
         try {
-            bucket.uploadFile(Path.of("/home/jakob/jprofiler_linux_12_0_2.tar.gz"), "jprofiler_linux_12_0_2.tar.gz");
+            bucket.uploadFile(Path.of("~/jprofiler_linux_12_0_2.tar.gz"), "jprofiler_linux_12_0_2.tar.gz");
         } catch (final InterruptedException exception) {
             Thread.currentThread().interrupt();
         } catch (final BucketAccessException | TimeoutException exception) {
