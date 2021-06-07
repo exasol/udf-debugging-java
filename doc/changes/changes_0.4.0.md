@@ -10,6 +10,10 @@ Code name:
 
 * #11: Removed exasol-testconatiner compile dependency
 
+## Bug Fixes:
+
+* #18: Fixed Broken URL link in the pom.xml
+
 ## Dependency Updates
 
 ### Compile Dependency Updates
