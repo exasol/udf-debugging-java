@@ -93,8 +93,6 @@
             <classifier>runtime</classifier>
             <scope>test</scope>
         </dependency>
-        <!-- This is a compile dependency for accessing Bucket from testcontainers.
-        It is planned to move it out there: -->
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>bucketfs-java</artifactId>
