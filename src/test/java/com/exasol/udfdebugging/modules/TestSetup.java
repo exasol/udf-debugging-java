@@ -11,13 +11,16 @@ import com.exasol.dbbuilder.dialects.exasol.udf.UdfScript;
 import com.exasol.udfdebugging.ExposedServiceAddress;
 import com.exasol.udfdebugging.LocalServiceExposer;
 
-public class ExampleUdfSetup implements Closeable, AutoCloseable {
+/**
+ * This class contains common integration test setup.
+ */
+public class TestSetup implements Closeable, AutoCloseable {
     private static final String SCHEMA_NAME = "TEST";
     private static final String UDF_NAME = "HELLO_WORLD";
 
     private final ExasolContainer<? extends ExasolContainer<?>> exasol = new ExasolContainer<>().withReuse(true);
 
-    public ExampleUdfSetup() {
+    public TestSetup() {
         this.exasol.start();
     }
 
@@ -42,11 +45,9 @@ public class ExampleUdfSetup implements Closeable, AutoCloseable {
             schema.createUdfBuilder(UDF_NAME).inputType(UdfScript.InputType.SCALAR).language(UdfScript.Language.JAVA)
                     .content("class HELLO_WORLD {\n"
                             + " static String run(ExaMetadata exa, ExaIterator ctx) throws Exception {\n"
-                            + " \treturn exa.getScriptLanguage();\n" + " }\n" + "}")
+                            + " \treturn \"\";\n" + " }\n" + "}")
                     .returns("VARCHAR(2000)").build();
-            final ResultSet resultSet = statement.executeQuery("SELECT " + SCHEMA_NAME + "." + UDF_NAME + "()");
-            resultSet.next();
-            System.out.println(resultSet.getString(1));
+            statement.executeQuery("SELECT " + SCHEMA_NAME + "." + UDF_NAME + "()").close();
         }
     }
 

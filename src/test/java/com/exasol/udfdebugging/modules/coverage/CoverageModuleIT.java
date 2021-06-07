@@ -11,14 +11,14 @@ import org.jacoco.core.data.ExecutionDataReader;
 import org.junit.jupiter.api.Test;
 
 import com.exasol.errorreporting.ExaError;
-import com.exasol.udfdebugging.modules.ExampleUdfSetup;
+import com.exasol.udfdebugging.modules.TestSetup;
 
 class CoverageModuleIT {
 
     @Test
     void testCoverageReportIsWritten() throws SQLException, IOException {
         deleteExecutionFile();
-        final ExampleUdfSetup udfSetup = new ExampleUdfSetup();
+        final TestSetup udfSetup = new TestSetup();
         final CoverageModule coverageModule = new CoverageModule(udfSetup.getHostPortProxy(),
                 udfSetup.getDefaultBucket());
         udfSetup.runJavaUdf(coverageModule.getJvmOptions());
