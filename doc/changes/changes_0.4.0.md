@@ -21,6 +21,7 @@ Code name:
 
 * Added `com.exasol:bucketfs-java:1.0.0`
 * Updated `com.exasol:error-reporting-java:0.2.0` to `0.4.0`
+* Added `com.exasol:exasol-test-setup-abstraction-java:0.1.0`
 * Removed `com.exasol:exasol-testcontainers:3.3.1`
 * Updated `com.exasol:test-db-builder-java:2.0.0` to `3.1.1`
 
@@ -36,5 +37,5 @@ Code name:
 ### Plugin Dependency Updates
 
 * Added `com.exasol:error-code-crawler-maven-plugin:0.1.1`
-* Updated `com.exasol:project-keeper-maven-plugin:0.3.0` to `0.6.0`
+* Updated `com.exasol:project-keeper-maven-plugin:0.3.0` to `0.9.0`
 * Added `io.github.zlika:reproducible-build-maven-plugin:0.13`
