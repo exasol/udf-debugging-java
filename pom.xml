@@ -380,30 +380,10 @@
                 <configuration>
                     <modules>
                         <module>maven_central</module>
+                        <module>integration_tests</module>
                     </modules>
                 </configuration>
             </plugin>
-            <!--<plugin>
-               <groupId>org.jasig.maven</groupId>
-               <artifactId>maven-notice-plugin</artifactId>
-               <version>1.1.1</version>
-               <configuration>
-                   <noticeTemplate>NOTICE.template</noticeTemplate>
-
-                    <licenseMapping>
-                        <param>https://source.jasig.org/licenses/license-mappings.xml</param>
-                    </licenseMapping>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
@@ -433,7 +413,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>error-code-crawler-maven-plugin</artifactId>
-                <version>0.1.1</version>
+                <version>0.5.0</version>
                 <executions>
                     <execution>
                         <goals>

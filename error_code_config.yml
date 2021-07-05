@@ -1,0 +1,4 @@
+error-tags:
+  UDJ:
+    packages:
+      - com.exasol.udfdebugging
