@@ -5,6 +5,7 @@ Code name:
 ## Features / Enhancements
 
 * #15: Add API for host port proxy
+* #26: Added support for exasol-test-setup-abstraction
 
 ## Refactoring:
 

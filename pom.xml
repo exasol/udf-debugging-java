@@ -98,6 +98,11 @@
             <artifactId>bucketfs-java</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.exasol</groupId>
+            <artifactId>exasol-test-setup-abstraction-java</artifactId>
+            <version>0.1.0</version>
+        </dependency>
         <!-- test dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
