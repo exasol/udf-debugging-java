@@ -8,7 +8,7 @@ import com.exasol.bucketfs.Bucket;
 import com.exasol.containers.ExasolContainer;
 import com.exasol.dbbuilder.dialects.exasol.*;
 import com.exasol.dbbuilder.dialects.exasol.udf.UdfScript;
-import com.exasol.udfdebugging.ExposedServiceAddress;
+import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.LocalServiceExposer;
 
 /**
@@ -25,7 +25,7 @@ public class TestSetup implements Closeable, AutoCloseable {
     }
 
     public LocalServiceExposer getHostPortProxy() {
-        return port -> new ExposedServiceAddress(this.exasol.getHostIp(), port);
+        return port -> new ServiceAddress(this.exasol.getHostIp(), port);
     }
 
     public Bucket getDefaultBucket() {

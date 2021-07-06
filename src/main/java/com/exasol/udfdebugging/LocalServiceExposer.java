@@ -1,5 +1,7 @@
 package com.exasol.udfdebugging;
 
+import com.exasol.exasoltestsetup.ServiceAddress;
+
 /**
  * Implementors of this interface exposes a local service (socket) into the Exasol database.
  */
@@ -12,5 +14,5 @@ public interface LocalServiceExposer {
      * @param port port number
      * @return proxy
      */
-    ExposedServiceAddress exposeLocalServiceToDatabase(int port);
+    ServiceAddress exposeLocalServiceToDatabase(int port);
 }
