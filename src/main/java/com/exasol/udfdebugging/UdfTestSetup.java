@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.exasol.bucketfs.Bucket;
+import com.exasol.exasoltestsetup.ExasolTestSetup;
+import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.modules.coverage.CoverageModuleFactory;
 import com.exasol.udfdebugging.modules.debugging.DebuggingModuleFactory;
 
@@ -26,7 +28,7 @@ public class UdfTestSetup {
      * @param bucket            BucketFS bucket to upload resource to
      */
     public UdfTestSetup(final String testHostIpAddress, final Bucket bucket) {
-        this(port -> new ExposedServiceAddress(testHostIpAddress, port), bucket);
+        this(port -> new ServiceAddress(testHostIpAddress, port), bucket);
     }
 
     /**
@@ -35,11 +37,20 @@ public class UdfTestSetup {
      * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
      * @param bucket              BucketFS bucket to upload resource to
      */
-    public UdfTestSetup(final LocalServiceExposer localServiceExposer, final Bucket bucket) {
+    private UdfTestSetup(final LocalServiceExposer localServiceExposer, final Bucket bucket) {
         this.enabledModules = AVAILABLE_MODULES.stream().filter(ModuleFactory::isEnabled)
                 .map(moduleFactory -> moduleFactory.buildModule(localServiceExposer, bucket))
                 .collect(Collectors.toList());
         printInfoMessage();
+    }
+
+    /**
+     * Create a new instance of {@link UdfTestSetup}.
+     * 
+     * @param testSetup Exasol test setup
+     */
+    public UdfTestSetup(final ExasolTestSetup testSetup) {
+        this(testSetup::makeLocalTcpServiceAccessibleFromDatabase, testSetup.getDefaultBucket());
     }
 
     /**

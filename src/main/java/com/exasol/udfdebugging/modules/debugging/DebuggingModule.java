@@ -2,7 +2,8 @@ package com.exasol.udfdebugging.modules.debugging;
 
 import java.util.stream.Stream;
 
-import com.exasol.udfdebugging.*;
+import com.exasol.exasoltestsetup.ServiceAddress;
+import com.exasol.udfdebugging.LocalServiceExposer;
 import com.exasol.udfdebugging.Module;
 
 public class DebuggingModule implements Module {
@@ -20,8 +21,7 @@ public class DebuggingModule implements Module {
 
     @Override
     public Stream<String> getJvmOptions() {
-        final ExposedServiceAddress proxyForHostPort = this.localServiceExposer
-                .exposeLocalServiceToDatabase(DEBUGGING_PORT);
+        final ServiceAddress proxyForHostPort = this.localServiceExposer.exposeLocalServiceToDatabase(DEBUGGING_PORT);
         return Stream.of("-agentlib:jdwp=transport=dt_socket,server=n,address=" + proxyForHostPort.getHostName() + ":"
                 + proxyForHostPort.getPort() + ",suspend=y");
     }
