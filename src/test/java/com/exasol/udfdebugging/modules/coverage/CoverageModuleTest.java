@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.mockito.Mockito.*;
 
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
@@ -17,7 +18,7 @@ import com.exasol.exasoltestsetup.ServiceAddress;
 class CoverageModuleTest {
 
     @Test
-    void testUpload() throws InterruptedException, BucketAccessException, TimeoutException {
+    void testUpload() throws BucketAccessException, TimeoutException, FileNotFoundException {
         final Bucket bucket = mock(Bucket.class);
         new CoverageModule((port) -> new ServiceAddress("1.2.3.4", port), bucket);
         verify(bucket).uploadFile(Path.of("target", "jacoco-agent", "org.jacoco.agent-runtime.jar"),
