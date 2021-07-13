@@ -6,6 +6,7 @@ Code name:
 
 * #15: Add API for host port proxy
 * #26: Added support for exasol-test-setup-abstraction
+* #20: Added module for JProfiler
 
 ## Refactoring:
 

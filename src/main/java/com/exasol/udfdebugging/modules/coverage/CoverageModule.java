@@ -1,5 +1,6 @@
 package com.exasol.udfdebugging.modules.coverage;
 
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Stream;
@@ -53,17 +54,10 @@ public class CoverageModule implements Module {
     private void uploadAgentToBucketFs(final Bucket bucket) {
         try {
             bucket.uploadFile(JACOCO_AGENT_PATH, JACOCO_AGENT_NAME);
-        } catch (final TimeoutException | BucketAccessException exception) {
-            throw getUploadFailedException(exception);
-        } catch (final InterruptedException exception) {
-            Thread.currentThread().interrupt();
-            throw getUploadFailedException(exception);
+        } catch (final TimeoutException | BucketAccessException | FileNotFoundException exception) {
+            throw new IllegalStateException(
+                    ExaError.messageBuilder("E-UDJ-5").message("Failed to upload jacoco agent to BucketFS.").toString(),
+                    exception);
         }
-    }
-
-    private IllegalStateException getUploadFailedException(final Exception exception) {
-        return new IllegalStateException(
-                ExaError.messageBuilder("E-UDJ-5").message("Failed to upload jacoco agent to BucketFS.").toString(),
-                exception);
     }
 }

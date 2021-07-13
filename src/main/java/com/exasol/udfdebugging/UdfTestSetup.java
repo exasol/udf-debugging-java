@@ -11,13 +11,14 @@ import com.exasol.exasoltestsetup.ExasolTestSetup;
 import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.modules.coverage.CoverageModuleFactory;
 import com.exasol.udfdebugging.modules.debugging.DebuggingModuleFactory;
+import com.exasol.udfdebugging.modules.jprofiler.JProfilerModuleFactory;
 
 /**
  * Test setup for testing UDFs in the database.
  */
 public class UdfTestSetup {
     private static final List<ModuleFactory> AVAILABLE_MODULES = List.of(new DebuggingModuleFactory(),
-            new CoverageModuleFactory());
+            new CoverageModuleFactory(), new JProfilerModuleFactory());
     private static final Logger LOGGER = LoggerFactory.getLogger(UdfTestSetup.class);
     private final List<Module> enabledModules;
 
