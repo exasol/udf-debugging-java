@@ -71,6 +71,7 @@ Since JProfiler uses a forward TCP connection you can only profile one UDF insta
 * Start JProfiler GUI
 * Connect to `<EXASOL_IP>:11002`
     * The UDF execution will wait until you connect the profiler
+    * Ensure that the port is reachable from your system (for AWS instances you can use an SSH tunnel from inside JProfiler)
 
 ## Additional Information
 
