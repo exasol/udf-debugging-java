@@ -46,7 +46,7 @@ class JProfilerModule implements Module {
     private void assertProfilerExists(final Path jprofilerAgent) {
         if (!Files.exists(jprofilerAgent)) {
             throw new IllegalStateException(ExaError.messageBuilder("E-UDJ-8")
-                    .message("Could not find jprofiler archive (We tried to open {{agent path}}).", jprofilerAgent)
+                    .message("Could not find jprofiler archive or open on path {{agent path}}).", jprofilerAgent)
                     .mitigation("Please download the JProfiler for Linux without JRE from the JProfiler website "
                             + "and specify the commandline option -D" + AGENT_OPTION
                             + "=<PATH TO jprofiler.tar.gz> or save it as ~/jprofiler.tar.gz.")

@@ -61,13 +61,13 @@ Since JProfiler uses a forward TCP connection you can only profile one UDF insta
 
 #### Usage
 
-* Install JProfiler on your System
+* Install JProfiler on your system
 * Download JProfiler for Linux without JRE as `.tar.gz` (Also choose the Linux version if you're on a different operating system!)
 * Now you've two options:
     * Store it as `jprofiler.tar.gz` in your home directory
     * Store it somewhere and pass `-DjProfilerAgent=<path to the archive.tar.gz>` to each test run
 * Run your tests with `-Dtest.jprofiler=true`
-* Find out the IP Address of your Exasol DB (for docker use `docker inspect`)
+* Find out the IPv4 address of your Exasol DB (for docker use `docker inspect`)
 * Start JProfiler GUI
 * Connect to `<EXASOL_IP>:11002`
     * The UDF execution will wait until you connect the profiler
@@ -76,4 +76,3 @@ Since JProfiler uses a forward TCP connection you can only profile one UDF insta
 
 * [Changelog](doc/changes/changelog.md)
 * [Dependencies](dependencies.md)
-
