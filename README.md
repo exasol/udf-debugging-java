@@ -51,8 +51,29 @@ This module installs a jacoco agent to the UDF JVM and receives the execution da
 
 This module requires additional maven configuration. Use the [project-keeper's](https://github.com/exasol/project-keeper-maven-plugin) `udf_coverage` module to verify it.
 
+### JProfiler
+
+System property: `test.jprofiler`
+
+This module allows you to profile UDF runs using [JProfiler](https://www.ej-technologies.com/products/jprofiler/overview.html). For that it uploads the JProfiler archive to BucketFs and adds the agent to the UDF command.
+
+Since JProfiler uses a forward TCP connection you can only profile one UDF instance at once. Make sure that you don't start multiple parallel instances.
+
+#### Usage
+
+* Install JProfiler on your system
+* Download JProfiler for Linux without JRE as `.tar.gz` (Also choose the Linux version if you're on a different operating system!)
+* Now you've two options:
+    * Store it as `jprofiler.tar.gz` in your home directory
+    * Store it somewhere and pass `-DjProfilerAgent=<path to the archive.tar.gz>` to each test run
+* Run your tests with `-Dtest.jprofiler=true`
+* Find out the IPv4 address of your Exasol DB (for docker use `docker inspect`)
+* Start JProfiler GUI
+* Connect to `<EXASOL_IP>:11002`
+    * The UDF execution will wait until you connect the profiler
+    * Ensure that the port is reachable from your system (for AWS instances you can use an SSH tunnel from inside JProfiler)
+
 ## Additional Information
 
 * [Changelog](doc/changes/changelog.md)
 * [Dependencies](dependencies.md)
-
