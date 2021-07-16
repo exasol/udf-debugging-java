@@ -367,6 +367,9 @@
                         <module>maven_central</module>
                         <module>integration_tests</module>
                     </modules>
+                    <linkReplacements>
+                        https://github.com/hamcrest/JavaHamcrest/hamcrest-all|https://github.com/hamcrest/JavaHamcrest/
+                    </linkReplacements>
                 </configuration>
             </plugin>
             <plugin>
