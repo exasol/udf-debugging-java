@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>udf-debugging-java</artifactId>
-    <version>0.4.0-SNAPSHOT</version>
+    <version>0.4.0</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-java</url>
@@ -367,6 +367,9 @@
                         <module>maven_central</module>
                         <module>integration_tests</module>
                     </modules>
+                    <linkReplacements>
+                        https://github.com/hamcrest/JavaHamcrest/hamcrest-all|https://github.com/hamcrest/JavaHamcrest/
+                    </linkReplacements>
                 </configuration>
             </plugin>
             <plugin>

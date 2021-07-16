@@ -76,7 +76,6 @@
 [57]: http://www.eclipse.org/legal/epl-v10.html
 [26]: https://github.com/exasol/exasol-testcontainers
 [34]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
-[24]: https://github.com/hamcrest/JavaHamcrest/hamcrest-all
 [23]: https://github.com/mockito/mockito/blob/main/LICENSE
 [60]: http://zlika.github.io/reproducible-build-maven-plugin
 [66]: http://maven.apache.org/plugins/maven-jar-plugin/
@@ -88,6 +87,7 @@
 [68]: http://maven.apache.org/plugins/maven-install-plugin/
 [18]: https://junit.org/junit5/
 [48]: https://sonatype.github.io/ossindex-maven/maven-plugin/
+[24]: https://github.com/hamcrest/JavaHamcrest/
 [28]: https://testcontainers.org
 [42]: https://maven.apache.org/plugins/maven-source-plugin/
 [14]: http://www.slf4j.org
