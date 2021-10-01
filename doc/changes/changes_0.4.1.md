@@ -4,7 +4,7 @@ Code name: Dependency Updates on Added JProfiler Module
 
 ## Features
 
-* #29: Replace javax.json by jakarta.json
+* #29: Replaced javax.json by jakarta.json
 
 ## Dependency Updates
 
