@@ -1,12 +1,9 @@
 package com.exasol.udfdebugging;
 
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
 import java.io.StringReader;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+
+import jakarta.json.*;
 
 public class PushDownTesting {
     public static String getPushDownSql(final Statement statement, final String query) throws SQLException {
@@ -17,7 +14,8 @@ public class PushDownTesting {
         }
     }
 
-    public static String getSelectionThatIsSentToTheAdapter(final Statement statement, final String query) throws SQLException {
+    public static String getSelectionThatIsSentToTheAdapter(final Statement statement, final String query)
+            throws SQLException {
         try (final ResultSet pushDownSqlResult = statement
                 .executeQuery("SELECT PUSHDOWN_JSON FROM (EXPLAIN VIRTUAL " + query + ");")) {
             pushDownSqlResult.next();
