@@ -28,3 +28,8 @@ Code name: Dependency Updates on Added JProfiler Module
 * Updated `org.junit.jupiter:junit-jupiter-params:5.7.2` to `5.8.1`
 * Updated `org.mockito:mockito-core:3.11.2` to `3.12.4`
 * Updated `org.testcontainers:junit-jupiter:1.15.3` to `1.16.0`
+
+### Plugin Dependency Updates
+
+* Updated `com.exasol:error-code-crawler-maven-plugin:0.5.0` to `0.6.0`
+* Updated `com.exasol:project-keeper-maven-plugin:0.10.0` to `1.2.0`
