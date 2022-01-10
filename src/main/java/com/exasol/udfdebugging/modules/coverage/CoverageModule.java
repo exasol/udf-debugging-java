@@ -1,6 +1,7 @@
 package com.exasol.udfdebugging.modules.coverage;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Stream;
@@ -59,5 +60,10 @@ public class CoverageModule implements Module {
                     ExaError.messageBuilder("E-UDJ-5").message("Failed to upload jacoco agent to BucketFS.").toString(),
                     exception);
         }
+    }
+
+    @Override
+    public void close() throws IOException {
+
     }
 }

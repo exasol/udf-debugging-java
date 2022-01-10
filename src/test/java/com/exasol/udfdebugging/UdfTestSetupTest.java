@@ -26,15 +26,19 @@ class UdfTestSetupTest {
     @Test
     void testDebuggingEnabled() {
         System.setProperty(DEBUG_PROPERTY, "true");
-        final UdfTestSetup udfTestSetup = new UdfTestSetup("1.2.3.4", mock(Bucket.class));
+        final UdfTestSetup udfTestSetup = getUdfTestSetup();
         final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
         assertThat(jvmOptions, hasItem(EXPECTED_DEBUG_JVM_OPTION));
+    }
+
+    private UdfTestSetup getUdfTestSetup() {
+        return new UdfTestSetup("1.2.3.4", mock(Bucket.class), null);
     }
 
     @Test
     void testCoverageEnabled() {
         System.setProperty(COVERAGE_PROPERTY, "true");
-        final UdfTestSetup udfTestSetup = new UdfTestSetup("1.2.3.4", mock(Bucket.class));
+        final UdfTestSetup udfTestSetup = getUdfTestSetup();
         final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
         assertThat(jvmOptions, hasItem(
                 "-javaagent:/buckets/null/null/org.jacoco.agent-runtime.jar=output=tcpclient,address=1.2.3.4,port=3002"));
@@ -42,7 +46,7 @@ class UdfTestSetupTest {
 
     @Test
     void testAllModulesAreDisabledByDefault() {
-        final UdfTestSetup udfTestSetup = new UdfTestSetup("1.2.3.4", mock(Bucket.class));
+        final UdfTestSetup udfTestSetup = getUdfTestSetup();
         final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
         assertThat(jvmOptions.isEmpty(), equalTo(true));
     }
@@ -50,7 +54,7 @@ class UdfTestSetupTest {
     @Test
     void testDebuggingDisabled() {
         System.setProperty(DEBUG_PROPERTY, "false");
-        final UdfTestSetup udfTestSetup = new UdfTestSetup("1.2.3.4", mock(Bucket.class));
+        final UdfTestSetup udfTestSetup = getUdfTestSetup();
         final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
         assertThat(jvmOptions, not(hasItem(EXPECTED_DEBUG_JVM_OPTION)));
     }

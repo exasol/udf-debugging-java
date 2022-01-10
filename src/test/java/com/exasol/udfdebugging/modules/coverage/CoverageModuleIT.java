@@ -21,7 +21,7 @@ class CoverageModuleIT {
         final TestSetup udfSetup = new TestSetup();
         final CoverageModule coverageModule = new CoverageModule(udfSetup.getHostPortProxy(),
                 udfSetup.getDefaultBucket());
-        udfSetup.runJavaUdf(coverageModule.getJvmOptions());
+        udfSetup.runJavaUdf(coverageModule.getJvmOptions(), "");
         assertThat(countReportedJacocoSessions(), equalTo(1));
     }
 

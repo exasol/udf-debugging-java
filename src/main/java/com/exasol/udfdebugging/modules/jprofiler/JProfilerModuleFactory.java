@@ -1,5 +1,7 @@
 package com.exasol.udfdebugging.modules.jprofiler;
 
+import java.sql.Connection;
+
 import com.exasol.bucketfs.Bucket;
 import com.exasol.udfdebugging.*;
 import com.exasol.udfdebugging.Module;
@@ -18,7 +20,8 @@ public class JProfilerModuleFactory extends AbstractModuleFactory {
     }
 
     @Override
-    public Module buildModule(final LocalServiceExposer localServiceExposer, final Bucket bucket) {
+    public Module buildModule(final LocalServiceExposer localServiceExposer, final Bucket bucket,
+            final Connection exasolConnection) {
         return new JProfilerModule(bucket);
     }
 }
