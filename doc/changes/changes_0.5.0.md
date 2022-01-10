@@ -19,6 +19,7 @@ Code name:
 * Updated `org.junit.jupiter:junit-jupiter-engine:5.8.1` to `5.8.2`
 * Updated `org.junit.jupiter:junit-jupiter-params:5.8.1` to `5.8.2`
 * Updated `org.mockito:mockito-core:3.12.4` to `4.2.0`
+* Added `org.mockito:mockito-junit-jupiter:4.2.0`
 * Updated `org.testcontainers:junit-jupiter:1.16.0` to `1.16.2`
 
 ### Plugin Dependency Updates
