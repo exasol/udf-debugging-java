@@ -19,10 +19,11 @@ class CoverageModuleIT {
     void testCoverageReportIsWritten() throws SQLException, IOException {
         deleteExecutionFile();
         final TestSetup udfSetup = new TestSetup();
-        final CoverageModule coverageModule = new CoverageModule(udfSetup.getHostPortProxy(),
-                udfSetup.getDefaultBucket());
-        udfSetup.runJavaUdf(coverageModule.getJvmOptions(), "");
-        assertThat(countReportedJacocoSessions(), equalTo(1));
+        try (final CoverageModule coverageModule = new CoverageModule(udfSetup.getHostPortProxy(),
+                udfSetup.getDefaultBucket())) {
+            udfSetup.runJavaUdf(coverageModule.getJvmOptions(), "");
+            assertThat(countReportedJacocoSessions(), equalTo(1));
+        }
     }
 
     private int countReportedJacocoSessions() throws IOException {

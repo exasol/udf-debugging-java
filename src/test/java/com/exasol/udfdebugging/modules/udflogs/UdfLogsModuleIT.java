@@ -15,8 +15,9 @@ class UdfLogsModuleIT {
 
     @Test
     void testGetLog() throws SQLException, IOException {
-        try (final TestSetup testSetup = new TestSetup()) {
-            final UdfLogsModule logsModule = new UdfLogsModule(testSetup.getHostPortProxy(), testSetup.getConnection());
+        try (final TestSetup testSetup = new TestSetup();
+                final UdfLogsModule logsModule = new UdfLogsModule(testSetup.getHostPortProxy(),
+                        testSetup.getConnection());) {
             testSetup.runJavaUdf(logsModule.getJvmOptions(), "System.out.println(\"hello from udf\");");
             final String log = Files.readString(logsModule.getCapturedLogFiles().get(0));
             assertThat(log, containsString("hello from udf"));

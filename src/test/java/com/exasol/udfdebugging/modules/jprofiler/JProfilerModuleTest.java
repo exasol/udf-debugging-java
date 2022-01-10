@@ -26,8 +26,9 @@ class JProfilerModuleTest {
     @Test
     void testUpload() throws BucketAccessException, TimeoutException, FileNotFoundException {
         final Bucket bucket = mock(Bucket.class);
-        new JProfilerModule(bucket);
-        verify(bucket).uploadFile(MOCK_AGENT_ARCHIVE, "jprofiler.tar.gz");
+        try (final JProfilerModule jProfilerModule = new JProfilerModule(bucket)) {
+            verify(bucket).uploadFile(MOCK_AGENT_ARCHIVE, "jprofiler.tar.gz");
+        }
     }
 
     @Test
@@ -35,9 +36,11 @@ class JProfilerModuleTest {
         final Bucket bucket = mock(Bucket.class);
         when(bucket.getBucketFsName()).thenReturn("my_bucketfs");
         when(bucket.getBucketName()).thenReturn("my_bucket");
-        final JProfilerModule coverageModule = new JProfilerModule(bucket);
-        assertThat(coverageModule.getJvmOptions().collect(Collectors.toList()),
-                contains("-agentpath:/buckets/my_bucketfs/my_bucket/jprofiler/subfolderA/linux-x64/libjprofilerti.so"
-                        + "=port=11002"));
+        try (final JProfilerModule jProfilerModule = new JProfilerModule(bucket)) {
+            assertThat(jProfilerModule.getJvmOptions().collect(Collectors.toList()),
+                    contains(
+                            "-agentpath:/buckets/my_bucketfs/my_bucket/jprofiler/subfolderA/linux-x64/libjprofilerti.so"
+                                    + "=port=11002"));
+        }
     }
 }

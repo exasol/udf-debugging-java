@@ -57,7 +57,14 @@ public class UdfLogsModule implements Module {
 
     private void redirectLogging(final Connection exasolConnection, final ServiceAddress logServerAddress) {
         try (final Statement statement = exasolConnection.createStatement()) {
-            statement.executeUpdate("ALTER SESSION SET SCRIPT_OUTPUT_ADDRESS = '" + logServerAddress.toString() + "';");
+            final String logServerAddressString = logServerAddress.toString();
+            if (logServerAddressString.contains("'")) {
+                throw new IllegalArgumentException(ExaError.messageBuilder("F-UDJ-19")
+                        .message("Invalid address {{address}}. The address must not contain a quotes.",
+                                logServerAddressString)
+                        .toString());
+            }
+            statement.executeUpdate("ALTER SESSION SET SCRIPT_OUTPUT_ADDRESS = '" + logServerAddressString + "';");
         } catch (final SQLException exception) {
             throw new IllegalStateException(
                     ExaError.messageBuilder("E-UDJ-16").message("Failed to set script output address.").toString(),

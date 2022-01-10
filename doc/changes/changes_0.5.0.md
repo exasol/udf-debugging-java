@@ -1,4 +1,4 @@
-# udf-debugging-java 0.5.0, released 2022-01-10
+# udf-debugging-java 0.5.0, released 2022-01-11
 
 Code name:
 
