@@ -54,6 +54,7 @@ class LogRecorderTest {
             this.writer = new PrintWriter(this.outputStream);
         }
 
+        @SuppressWarnings("java:S2925") // sleep is required
         public void write(final String message) throws InterruptedException {
             this.writer.write(message);
             this.writer.flush();

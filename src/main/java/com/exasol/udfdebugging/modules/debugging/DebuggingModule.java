@@ -32,6 +32,6 @@ public class DebuggingModule implements Module {
 
     @Override
     public void close() {
-
+        // nothing to close
     }
 }

@@ -64,6 +64,6 @@ public class CoverageModule implements Module {
 
     @Override
     public void close() throws IOException {
-
+        // nothing to close
     }
 }
