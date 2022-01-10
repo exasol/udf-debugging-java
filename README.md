@@ -73,6 +73,18 @@ Since JProfiler uses a forward TCP connection you can only profile one UDF insta
     * The UDF execution will wait until you connect the profiler
     * Ensure that the port is reachable from your system (for AWS instances you can use an SSH tunnel from inside JProfiler)
 
+### UDF Logs
+
+System property: `test.udf-logs`
+
+This module redirects the STDOUT from UDFs to files on the test host.
+
+You can find the logs in `target/udf-logs/`. For each incoming stream (UDF instance) this module creates one file and logs its name:
+
+```
+Created log file for UDF output: target/udf-logs/udf-log-16150321841745991713.txt
+```
+
 ## Additional Information
 
 * [Changelog](doc/changes/changelog.md)
