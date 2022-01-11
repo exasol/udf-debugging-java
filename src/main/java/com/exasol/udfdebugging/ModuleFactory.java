@@ -28,7 +28,7 @@ public interface ModuleFactory {
      * 
      * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
      * @param bucket              BucketFS bucket to upload resource to
-     * @param exasolConnection    connection to the exasol database
+     * @param exasolConnection    connection to the Exasol database
      * @return built {@link Module}
      */
     public Module buildModule(final LocalServiceExposer localServiceExposer, Bucket bucket,

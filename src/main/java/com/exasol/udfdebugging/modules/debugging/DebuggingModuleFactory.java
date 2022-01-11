@@ -8,7 +8,7 @@ import com.exasol.udfdebugging.Module;
 import com.exasol.udfdebugging.modules.AbstractModuleFactory;
 
 /**
- * Fsctory for {@link DebuggingModule}.
+ * Factory for {@link DebuggingModule}.
  */
 public class DebuggingModuleFactory extends AbstractModuleFactory {
     /**

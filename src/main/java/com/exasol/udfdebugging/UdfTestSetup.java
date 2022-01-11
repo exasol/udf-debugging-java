@@ -29,7 +29,7 @@ public class UdfTestSetup implements AutoCloseable {
      *
      * @param testHostIpAddress IP address of the host running this UDF Test Setup under which UDFs can reach it
      * @param bucket            BucketFS bucket to upload resource to
-     * @param exasolConnection  connection to the exasol database. Make sure that your tests use the same connection
+     * @param exasolConnection  connection to the Exasol database. Make sure that your tests use the same connection
      */
     public UdfTestSetup(final String testHostIpAddress, final Bucket bucket, final Connection exasolConnection) {
         this(port -> new ServiceAddress(testHostIpAddress, port), bucket, exasolConnection);
@@ -40,7 +40,7 @@ public class UdfTestSetup implements AutoCloseable {
      * 
      * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
      * @param bucket              BucketFS bucket to upload resource to
-     * @param exasolConnection    connection to the exasol database. Make sure that your tests use the same connection
+     * @param exasolConnection    connection to the Exasol database. Make sure that your tests use the same connection
      */
     private UdfTestSetup(final LocalServiceExposer localServiceExposer, final Bucket bucket,
             final Connection exasolConnection) {
@@ -54,7 +54,7 @@ public class UdfTestSetup implements AutoCloseable {
      * Create a new instance of {@link UdfTestSetup}.
      * 
      * @param testSetup        Exasol test setup
-     * @param exasolConnection connection to the exasol database. Make sure that your tests use the same connection
+     * @param exasolConnection connection to the Exasol database. Make sure that your tests use the same connection
      */
     public UdfTestSetup(final ExasolTestSetup testSetup, final Connection exasolConnection) {
         this(testSetup::makeLocalTcpServiceAccessibleFromDatabase, testSetup.getDefaultBucket(), exasolConnection);
