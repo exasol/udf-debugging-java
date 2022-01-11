@@ -25,14 +25,12 @@ class UdfTestSetupTest {
     private static final String EXPECTED_DEBUG_JVM_OPTION = "-agentlib:jdwp=transport=dt_socket,server=n,address=1.2.3.4:8000,suspend=y";
     @Mock
     private Connection connection;
-    @Mock
-    private Statement statement;
 
     @BeforeEach
     void before() throws SQLException {
-        when(this.connection.createStatement()).thenReturn(this.statement);
         System.clearProperty(DEBUG_PROPERTY);
         System.clearProperty(COVERAGE_PROPERTY);
+        System.clearProperty(UDF_LOGS_PROPERTY);
     }
 
     @Test
@@ -60,9 +58,11 @@ class UdfTestSetupTest {
 
     @Test
     void testUdfLogsEnabled() throws SQLException {
+        final Statement statement = mock(Statement.class);
+        when(this.connection.createStatement()).thenReturn(statement);
         System.setProperty(UDF_LOGS_PROPERTY, "true");
         try (final UdfTestSetup udfTestSetup = getUdfTestSetup()) {
-            verify(this.statement)
+            verify(statement)
                     .executeUpdate(ArgumentMatchers.startsWith("ALTER SESSION SET SCRIPT_OUTPUT_ADDRESS = '1.2.3.4"));
         }
     }
