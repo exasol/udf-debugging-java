@@ -19,9 +19,11 @@ public class TestSetup implements Closeable, AutoCloseable {
     private static final String UDF_NAME = "HELLO_WORLD";
 
     private final ExasolContainer<? extends ExasolContainer<?>> exasol = new ExasolContainer<>().withReuse(true);
+    private final Connection connection;
 
-    public TestSetup() {
+    public TestSetup() throws SQLException {
         this.exasol.start();
+        this.connection = this.exasol.createConnection();
     }
 
     public LocalServiceExposer getHostPortProxy() {
@@ -36,16 +38,20 @@ public class TestSetup implements Closeable, AutoCloseable {
         return this.exasol;
     }
 
-    public void runJavaUdf(final Stream<String> jvmOptions) throws SQLException {
-        try (final Connection connection = this.exasol.createConnection();
-                final Statement statement = connection.createStatement()) {
-            final ExasolObjectFactory exasolObjectFactory = new ExasolObjectFactory(connection,
+    public Connection getConnection() {
+        return this.connection;
+    }
+
+    public void runJavaUdf(final Stream<String> jvmOptions, final String lineToRun) throws SQLException {
+        try (final Statement statement = this.connection.createStatement()) {
+            final ExasolObjectFactory exasolObjectFactory = new ExasolObjectFactory(this.connection,
                     ExasolObjectConfiguration.builder().withJvmOptions(jvmOptions.toArray(String[]::new)).build());
             final ExasolSchema schema = exasolObjectFactory.createSchema(SCHEMA_NAME);
             schema.createUdfBuilder(UDF_NAME).inputType(UdfScript.InputType.SCALAR).language(UdfScript.Language.JAVA)
                     .content("class HELLO_WORLD {\n"
-                            + " static String run(ExaMetadata exa, ExaIterator ctx) throws Exception {\n"
-                            + " \treturn \"\";\n" + " }\n" + "}")
+                            + " static String run(ExaMetadata exa, ExaIterator ctx) throws Exception {\n" + //
+                            lineToRun + "\n" + //
+                            " \treturn \"\";\n" + " }\n" + "}")
                     .returns("VARCHAR(2000)").build();
             statement.executeQuery("SELECT " + SCHEMA_NAME + "." + UDF_NAME + "()").close();
         }
@@ -53,6 +59,11 @@ public class TestSetup implements Closeable, AutoCloseable {
 
     @Override
     public void close() {
+        try {
+            this.connection.close();
+        } catch (final SQLException exception) {
+            // at least we tried
+        }
         this.exasol.stop();
     }
 }

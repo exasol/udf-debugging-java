@@ -1,4 +1,4 @@
-package com.exasol.udfdebugging.modules.coverage;
+package com.exasol.udfdebugging.modules.udflogs;
 
 import java.sql.Connection;
 
@@ -8,20 +8,19 @@ import com.exasol.udfdebugging.Module;
 import com.exasol.udfdebugging.modules.AbstractModuleFactory;
 
 /**
- * Factory for {@link CoverageModule}.
+ * Factory for {@link UdfLogsModule}.
  */
-public class CoverageModuleFactory extends AbstractModuleFactory {
-
+public class UdfLogsModuleFactory extends AbstractModuleFactory {
     /**
-     * Create a new instance of {@link CoverageModuleFactory}.
+     * Create a new instance of {@link UdfLogsModuleFactory}.
      */
-    public CoverageModuleFactory() {
-        super("coverage");
+    public UdfLogsModuleFactory() {
+        super("udf-logs");
     }
 
     @Override
     public Module buildModule(final LocalServiceExposer localServiceExposer, final Bucket bucket,
             final Connection exasolConnection) {
-        return new CoverageModule(localServiceExposer, bucket);
+        return new UdfLogsModule(localServiceExposer, exasolConnection);
     }
 }

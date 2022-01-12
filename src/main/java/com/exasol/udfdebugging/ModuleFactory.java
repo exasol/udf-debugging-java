@@ -1,7 +1,12 @@
 package com.exasol.udfdebugging;
 
+import java.sql.Connection;
+
 import com.exasol.bucketfs.Bucket;
 
+/**
+ * Interface for factories for {@link Module}.
+ */
 public interface ModuleFactory {
 
     /**
@@ -23,7 +28,9 @@ public interface ModuleFactory {
      * 
      * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
      * @param bucket              BucketFS bucket to upload resource to
+     * @param exasolConnection    connection to the Exasol database
      * @return built {@link Module}
      */
-    public Module buildModule(final LocalServiceExposer localServiceExposer, Bucket bucket);
+    public Module buildModule(final LocalServiceExposer localServiceExposer, Bucket bucket,
+            final Connection exasolConnection);
 }

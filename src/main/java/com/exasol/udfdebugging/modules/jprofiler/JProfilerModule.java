@@ -67,4 +67,9 @@ class JProfilerModule implements Module {
     public Stream<String> getJvmOptions() {
         return Stream.of(this.jvmOption);
     }
+
+    @Override
+    public void close() {
+        // nothing to close
+    }
 }

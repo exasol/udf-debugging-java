@@ -1,5 +1,6 @@
 package com.exasol.udfdebugging;
 
+import java.sql.Connection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,13 +13,14 @@ import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.modules.coverage.CoverageModuleFactory;
 import com.exasol.udfdebugging.modules.debugging.DebuggingModuleFactory;
 import com.exasol.udfdebugging.modules.jprofiler.JProfilerModuleFactory;
+import com.exasol.udfdebugging.modules.udflogs.UdfLogsModuleFactory;
 
 /**
  * Test setup for testing UDFs in the database.
  */
-public class UdfTestSetup {
+public class UdfTestSetup implements AutoCloseable {
     private static final List<ModuleFactory> AVAILABLE_MODULES = List.of(new DebuggingModuleFactory(),
-            new CoverageModuleFactory(), new JProfilerModuleFactory());
+            new CoverageModuleFactory(), new JProfilerModuleFactory(), new UdfLogsModuleFactory());
     private static final Logger LOGGER = LoggerFactory.getLogger(UdfTestSetup.class);
     private final List<Module> enabledModules;
 
@@ -27,9 +29,10 @@ public class UdfTestSetup {
      *
      * @param testHostIpAddress IP address of the host running this UDF Test Setup under which UDFs can reach it
      * @param bucket            BucketFS bucket to upload resource to
+     * @param exasolConnection  connection to the Exasol database. Make sure that your tests use the same connection
      */
-    public UdfTestSetup(final String testHostIpAddress, final Bucket bucket) {
-        this(port -> new ServiceAddress(testHostIpAddress, port), bucket);
+    public UdfTestSetup(final String testHostIpAddress, final Bucket bucket, final Connection exasolConnection) {
+        this(port -> new ServiceAddress(testHostIpAddress, port), bucket, exasolConnection);
     }
 
     /**
@@ -37,10 +40,12 @@ public class UdfTestSetup {
      * 
      * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
      * @param bucket              BucketFS bucket to upload resource to
+     * @param exasolConnection    connection to the Exasol database. Make sure that your tests use the same connection
      */
-    private UdfTestSetup(final LocalServiceExposer localServiceExposer, final Bucket bucket) {
+    private UdfTestSetup(final LocalServiceExposer localServiceExposer, final Bucket bucket,
+            final Connection exasolConnection) {
         this.enabledModules = AVAILABLE_MODULES.stream().filter(ModuleFactory::isEnabled)
-                .map(moduleFactory -> moduleFactory.buildModule(localServiceExposer, bucket))
+                .map(moduleFactory -> moduleFactory.buildModule(localServiceExposer, bucket, exasolConnection))
                 .collect(Collectors.toList());
         printInfoMessage();
     }
@@ -48,10 +53,11 @@ public class UdfTestSetup {
     /**
      * Create a new instance of {@link UdfTestSetup}.
      * 
-     * @param testSetup Exasol test setup
+     * @param testSetup        Exasol test setup
+     * @param exasolConnection connection to the Exasol database. Make sure that your tests use the same connection
      */
-    public UdfTestSetup(final ExasolTestSetup testSetup) {
-        this(testSetup::makeLocalTcpServiceAccessibleFromDatabase, testSetup.getDefaultBucket());
+    public UdfTestSetup(final ExasolTestSetup testSetup, final Connection exasolConnection) {
+        this(testSetup::makeLocalTcpServiceAccessibleFromDatabase, testSetup.getDefaultBucket(), exasolConnection);
     }
 
     /**
@@ -78,5 +84,16 @@ public class UdfTestSetup {
             messageBuilder.append("\n");
         });
         return messageBuilder.toString();
+    }
+
+    @Override
+    public void close() {
+        for (final Module enabledModule : this.enabledModules) {
+            try {
+                enabledModule.close();
+            } catch (final Exception exception) {
+                // at least we tried
+            }
+        }
     }
 }
