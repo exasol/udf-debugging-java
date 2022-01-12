@@ -18,7 +18,7 @@ public final class LogRecorder implements AutoCloseable {
     /**
      * Create a new instance of {@link LogRecorder}.
      * 
-     * @param logFileHandler callback for created log files
+     * @param logFileHandler callback to notify when a new log file is created
      */
     public LogRecorder(final Consumer<Path> logFileHandler) {
         try {
@@ -101,6 +101,14 @@ public final class LogRecorder implements AutoCloseable {
                 throw new UncheckedIOException(
                         ExaError.messageBuilder("E-UDJ-17").message("Failed to read from log stream.").toString(),
                         exception);
+            } finally {
+                try {
+                    if (!this.socket.isClosed()) {
+                        this.socket.close();
+                    }
+                } catch (final IOException e) {
+                    // ignore
+                }
             }
         }
     }
