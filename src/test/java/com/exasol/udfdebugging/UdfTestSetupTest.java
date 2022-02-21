@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.Arrays;
 import java.util.List;
 
+import org.itsallcode.junit.sysextensions.SystemOutGuard;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.exasol.bucketfs.Bucket;
 
 @ExtendWith(MockitoExtension.class)
+@ExtendWith(SystemOutGuard.class)
 class UdfTestSetupTest {
     public static final String COVERAGE_PROPERTY = "test.coverage";
     public static final String DEBUG_PROPERTY = "test.debug";
@@ -27,7 +29,7 @@ class UdfTestSetupTest {
     private Connection connection;
 
     @BeforeEach
-    void before() throws SQLException {
+    void before() {
         System.clearProperty(DEBUG_PROPERTY);
         System.clearProperty(COVERAGE_PROPERTY);
         System.clearProperty(UDF_LOGS_PROPERTY);

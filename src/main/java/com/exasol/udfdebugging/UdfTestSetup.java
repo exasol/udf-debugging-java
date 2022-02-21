@@ -76,14 +76,9 @@ public class UdfTestSetup implements AutoCloseable {
     }
 
     private String getInfoMessage() {
-        final StringBuilder messageBuilder = new StringBuilder("Udf Test Setup Configuration:\n");
-        AVAILABLE_MODULES.forEach(module -> {
-            messageBuilder.append(module.getModulePropertyName());
-            messageBuilder.append(":\t");
-            messageBuilder.append(module.isEnabled() ? "enabled" : "disabled");
-            messageBuilder.append("\n");
-        });
-        return messageBuilder.toString();
+        return AVAILABLE_MODULES.stream()
+                .map(module -> module.getModulePropertyName() + ": " + (module.isEnabled() ? "✓" : "✗"))
+                .collect(Collectors.joining("; ")) + "\n";
     }
 
     @Override
