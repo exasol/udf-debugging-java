@@ -1,4 +1,4 @@
-# udf-debugging-java 0.6.0, released 2022-02-21
+# udf-debugging-java 0.6.0, released 2022-02-23
 
 Code name: Single line info message
 
