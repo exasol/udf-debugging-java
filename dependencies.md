@@ -43,10 +43,10 @@
 | [Maven Flatten Plugin][42]                              | [Apache Software Licenese][43]                 |
 | [org.sonatype.ossindex.maven:ossindex-maven-plugin][44] | [ASL2][43]                                     |
 | [Reproducible Build Maven Plugin][46]                   | [Apache 2.0][43]                               |
-| [Maven Surefire Plugin][48]                             | [Apache License, Version 2.0][12]              |
-| [Maven Dependency Plugin][50]                           | [The Apache Software License, Version 2.0][43] |
-| [Versions Maven Plugin][52]                             | [Apache License, Version 2.0][12]              |
-| [Project keeper maven plugin][54]                       | [The MIT License][55]                          |
+| [Maven Dependency Plugin][48]                           | [The Apache Software License, Version 2.0][43] |
+| [Project keeper maven plugin][50]                       | [The MIT License][51]                          |
+| [Maven Surefire Plugin][52]                             | [Apache License, Version 2.0][12]              |
+| [Versions Maven Plugin][54]                             | [Apache License, Version 2.0][12]              |
 | [Apache Maven Deploy Plugin][56]                        | [Apache License, Version 2.0][12]              |
 | [Apache Maven GPG Plugin][58]                           | [Apache License, Version 2.0][12]              |
 | [Apache Maven Source Plugin][60]                        | [Apache License, Version 2.0][12]              |
@@ -66,13 +66,13 @@
 [3]: https://github.com/exasol/error-reporting-java
 [18]: http://www.eclipse.org/legal/epl-v20.html
 [43]: http://www.apache.org/licenses/LICENSE-2.0.txt
-[48]: https://maven.apache.org/surefire/maven-surefire-plugin/
+[52]: https://maven.apache.org/surefire/maven-surefire-plugin/
 [72]: http://maven.apache.org/plugins/maven-clean-plugin/
 [4]: https://opensource.org/licenses/MIT
 [25]: https://github.com/mockito/mockito
 [11]: https://commons.apache.org/proper/commons-compress/
-[52]: http://www.mojohaus.org/versions-maven-plugin/
-[54]: https://github.com/exasol/project-keeper/
+[50]: https://github.com/exasol/project-keeper/
+[54]: http://www.mojohaus.org/versions-maven-plugin/
 [38]: https://maven.apache.org/plugins/maven-compiler-plugin/
 [14]: https://github.com/exasol/test-db-builder-java/blob/main/LICENSE
 [6]: https://www.eclipse.org/legal/epl-2.0/
@@ -94,12 +94,12 @@
 [13]: https://github.com/exasol/test-db-builder-java/
 [64]: http://www.sonatype.com/public-parent/nexus-maven-plugins/nexus-staging/nexus-staging-maven-plugin/
 [66]: https://maven.apache.org/surefire/maven-failsafe-plugin/
-[50]: http://maven.apache.org/plugins/maven-dependency-plugin/
+[48]: http://maven.apache.org/plugins/maven-dependency-plugin/
 [32]: http://opensource.org/licenses/MIT
 [65]: http://www.eclipse.org/legal/epl-v10.html
 [29]: https://github.com/exasol/exasol-testcontainers
 [27]: https://github.com/hamcrest/JavaHamcrest/hamcrest-all
-[55]: https://github.com/exasol/project-keeper/blob/main/LICENSE
+[51]: https://github.com/exasol/project-keeper/blob/main/LICENSE
 [76]: http://maven.apache.org/plugins/maven-jar-plugin/
 [1]: https://projects.eclipse.org/license/epl-2.0
 [12]: https://www.apache.org/licenses/LICENSE-2.0.txt
