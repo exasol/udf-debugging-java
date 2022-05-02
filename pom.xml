@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>udf-debugging-java</artifactId>
     <version>0.6.1</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
-    <url>https://github.com/exasol/udf-debugging-java</url>
+    <url>https://github.com/exasol/udf-debugging-java/</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -364,7 +363,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>1.3.4</version>
+                <version>2.3.2</version>
                 <executions>
                     <execution>
                         <goals>
@@ -373,13 +372,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <modules>
-                        <module>maven_central</module>
-                        <module>integration_tests</module>
-                    </modules>
-                    <linkReplacements>
-                        https://github.com/hamcrest/JavaHamcrest/hamcrest-all|https://github.com/hamcrest/JavaHamcrest/
-                    </linkReplacements>
+                    <linkReplacements>https://github.com/hamcrest/JavaHamcrest/hamcrest-all|https://github.com/hamcrest/JavaHamcrest/</linkReplacements>
                 </configuration>
             </plugin>
             <plugin>
@@ -442,4 +435,10 @@
             </testResource>
         </testResources>
     </build>
+    <parent>
+        <artifactId>udf-debugging-java-generated-parent</artifactId>
+        <groupId>com.exasol</groupId>
+        <version>0.6.1</version>
+        <relativePath>pk_generated_parent.pom</relativePath>
+    </parent>
 </project>
