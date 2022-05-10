@@ -10,13 +10,16 @@ This release upgrades dependencies and reduces the number of runtime dependencie
 
 ### Compile Dependency Updates
 
-* Updated `com.exasol:test-db-builder-java:3.2.2` to `3.3.2`
+* Removed `com.exasol:test-db-builder-java:3.2.2`
 * Updated `jakarta.json:jakarta.json-api:2.0.1` to `2.1.0`
+* Removed `org.itsallcode:junit5-system-extensions:1.2.0`
 * Updated `org.jacoco:org.jacoco.core:0.8.7` to `0.8.8`
 
 ### Test Dependency Updates
 
 * Updated `com.exasol:exasol-testcontainers:6.0.0` to `6.1.1`
+* Added `com.exasol:test-db-builder-java:3.3.2`
+* Added `org.itsallcode:junit5-system-extensions:1.2.0`
 * Updated `org.jacoco:org.jacoco.agent:0.8.7` to `0.8.8`
 * Removed `org.mockito:mockito-core:4.3.1`
 * Updated `org.mockito:mockito-junit-jupiter:4.3.1` to `4.5.1`
