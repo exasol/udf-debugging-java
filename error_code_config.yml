@@ -2,3 +2,4 @@ error-tags:
   UDJ:
     packages:
       - com.exasol.udfdebugging
+    highest-index: 19
