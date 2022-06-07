@@ -1,12 +1,10 @@
-# udf-debugging-java 0.6.2, released 2022-??-??
+# udf-debugging-java 0.6.2, released 2022-06-07
 
-Code name:
+Code name: Dependency updates / CVE fixes
 
 ## Summary
 
-## Features
-
-* ISSUE_NUMBER: description
+Dependency updates
 
 ## Dependency Updates
 
