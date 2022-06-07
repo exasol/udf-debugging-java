@@ -9,7 +9,7 @@
 | [error-reporting-java][3]               | [MIT][4]                                                                                                     |
 | [JaCoCo :: Core][5]                     | [Eclipse Public License 2.0][6]                                                                              |
 | [BucketFS Java][7]                      | [MIT][4]                                                                                                     |
-| [exasol-test-setup-abstraction-java][9] | [MIT][4]                                                                                                     |
+| [exasol-test-setup-abstraction-java][9] | [MIT License][10]                                                                                            |
 | [Apache Commons Compress][11]           | [Apache License, Version 2.0][12]                                                                            |
 | [SLF4J API Module][13]                  | [MIT License][14]                                                                                            |
 
@@ -70,27 +70,28 @@
 [72]: http://maven.apache.org/plugins/maven-clean-plugin/
 [4]: https://opensource.org/licenses/MIT
 [21]: https://github.com/mockito/mockito
+[42]: https://www.mojohaus.org/flatten-maven-plugin/
 [11]: https://commons.apache.org/proper/commons-compress/
 [50]: https://github.com/exasol/project-keeper/
 [54]: http://www.mojohaus.org/versions-maven-plugin/
 [38]: https://maven.apache.org/plugins/maven-compiler-plugin/
 [30]: https://github.com/exasol/test-db-builder-java/blob/main/LICENSE
 [6]: https://www.eclipse.org/legal/epl-2.0/
+[9]: https://github.com/exasol/exasol-test-setup-abstraction-java/
 [56]: https://maven.apache.org/plugins/maven-deploy-plugin/
 [37]: http://www.gnu.org/licenses/lgpl.txt
 [68]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
 [22]: https://github.com/mockito/mockito/blob/main/LICENSE
 [46]: http://zlika.github.io/reproducible-build-maven-plugin
+[10]: https://github.com/exasol/exasol-test-setup-abstraction-java/blob/main/LICENSE
 [14]: http://www.opensource.org/licenses/mit-license.php
 [36]: http://sonarsource.github.io/sonar-scanner-maven/
 [17]: https://junit.org/junit5/
-[42]: https://www.mojohaus.org/flatten-maven-plugin/flatten-maven-plugin
 [0]: https://github.com/eclipse-ee4j/jsonp
 [60]: https://maven.apache.org/plugins/maven-source-plugin/
 [2]: https://projects.eclipse.org/license/secondary-gpl-2.0-cp
 [13]: http://www.slf4j.org
 [74]: http://maven.apache.org/plugins/maven-resources-plugin/
-[9]: https://github.com/exasol/exasol-test-setup-abstraction-java
 [29]: https://github.com/exasol/test-db-builder-java/
 [64]: http://www.sonatype.com/public-parent/nexus-maven-plugins/nexus-staging/nexus-staging-maven-plugin/
 [66]: https://maven.apache.org/surefire/maven-failsafe-plugin/
