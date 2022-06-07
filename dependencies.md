@@ -99,7 +99,7 @@
 [28]: http://opensource.org/licenses/MIT
 [65]: http://www.eclipse.org/legal/epl-v10.html
 [25]: https://github.com/exasol/exasol-testcontainers
-[23]: https://github.com/hamcrest/JavaHamcrest/hamcrest-all
+[23]: https://github.com/hamcrest/JavaHamcrest
 [51]: https://github.com/exasol/project-keeper/blob/main/LICENSE
 [76]: http://maven.apache.org/plugins/maven-jar-plugin/
 [1]: https://projects.eclipse.org/license/epl-2.0
