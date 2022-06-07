@@ -4,3 +4,5 @@ sources:
     modules:
       - maven_central
       - integration_tests
+linkReplacements:
+  - "https://github.com/hamcrest/JavaHamcrest/hamcrest-all|https://github.com/hamcrest/JavaHamcrest"

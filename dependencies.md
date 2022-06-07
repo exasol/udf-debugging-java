@@ -65,6 +65,7 @@
 [7]: https://github.com/exasol/bucketfs-java
 [3]: https://github.com/exasol/error-reporting-java
 [32]: http://www.eclipse.org/legal/epl-v20.html
+[23]: https://github.com/hamcrest/JavaHamcrest
 [43]: http://www.apache.org/licenses/LICENSE-2.0.txt
 [52]: https://maven.apache.org/surefire/maven-surefire-plugin/
 [72]: http://maven.apache.org/plugins/maven-clean-plugin/
@@ -99,7 +100,6 @@
 [28]: http://opensource.org/licenses/MIT
 [65]: http://www.eclipse.org/legal/epl-v10.html
 [25]: https://github.com/exasol/exasol-testcontainers
-[23]: https://github.com/hamcrest/JavaHamcrest
 [51]: https://github.com/exasol/project-keeper/blob/main/LICENSE
 [76]: http://maven.apache.org/plugins/maven-jar-plugin/
 [1]: https://projects.eclipse.org/license/epl-2.0
