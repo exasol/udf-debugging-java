@@ -1,10 +1,10 @@
-# udf-debugging-java 0.6.2, released 2022-06-07
+# udf-debugging-java 0.6.2, released 2022-06-13
 
 Code name: Dependency updates / CVE fixes
 
 ## Summary
 
-Dependency updates
+Dependency updates for test-setup-abstraction and project-keeper
 
 ## Dependency Updates
 
