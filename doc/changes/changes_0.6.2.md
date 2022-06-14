@@ -1,4 +1,4 @@
-# udf-debugging-java 0.6.2, released 2022-06-13
+# udf-debugging-java 0.6.2, released 2022-06-14
 
 Code name: Dependency updates / CVE fixes
 
