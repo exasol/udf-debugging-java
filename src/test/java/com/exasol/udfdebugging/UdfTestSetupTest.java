@@ -17,6 +17,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.exasol.bucketfs.Bucket;
+import com.exasol.exasoltestsetup.ExasolTestSetup;
+import com.exasol.exasoltestsetup.ServiceAddress;
 
 @ExtendWith(MockitoExtension.class)
 @ExtendWith(SystemOutGuard.class)
@@ -46,6 +48,21 @@ class UdfTestSetupTest {
 
     private UdfTestSetup getUdfTestSetup() {
         return new UdfTestSetup("1.2.3.4", mock(Bucket.class), this.connection);
+    }
+
+    @Test
+    void testGetTestSetupForETAJ() {
+        System.setProperty(COVERAGE_PROPERTY, "true");
+        final ExasolTestSetup testSetup = mock(ExasolTestSetup.class);
+        final Bucket bucket = mock(Bucket.class);
+        when(testSetup.getDefaultBucket()).thenReturn(bucket);
+        when(testSetup.makeLocalTcpServiceAccessibleFromDatabase(anyInt()))
+                .thenReturn(new ServiceAddress("4.3.2.1", 123));
+        try (final UdfTestSetup udfTestSetup = new UdfTestSetup(testSetup, this.connection)) {
+            final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
+            assertThat(jvmOptions, hasItem(
+                    "-javaagent:/buckets/null/null/org.jacoco.agent-runtime.jar=output=tcpclient,address=4.3.2.1,port=123"));
+        }
     }
 
     @Test
