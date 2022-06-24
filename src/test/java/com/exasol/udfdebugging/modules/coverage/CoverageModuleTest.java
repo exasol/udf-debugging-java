@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.contains;
 import static org.mockito.Mockito.*;
 
 import java.io.FileNotFoundException;
+import java.net.InetSocketAddress;
 import java.nio.file.Path;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
@@ -13,14 +14,13 @@ import org.junit.jupiter.api.Test;
 
 import com.exasol.bucketfs.Bucket;
 import com.exasol.bucketfs.BucketAccessException;
-import com.exasol.exasoltestsetup.ServiceAddress;
 
 class CoverageModuleTest {
 
     @Test
     void testUpload() throws BucketAccessException, TimeoutException, FileNotFoundException {
         final Bucket bucket = mock(Bucket.class);
-        new CoverageModule((port) -> new ServiceAddress("1.2.3.4", port), bucket);
+        new CoverageModule((port) -> new InetSocketAddress("1.2.3.4", port), bucket);
         verify(bucket).uploadFile(Path.of("target", "jacoco-agent", "org.jacoco.agent-runtime.jar"),
                 "org.jacoco.agent-runtime.jar");
     }
@@ -30,7 +30,8 @@ class CoverageModuleTest {
         final Bucket bucket = mock(Bucket.class);
         when(bucket.getBucketFsName()).thenReturn("my_bucketfs");
         when(bucket.getBucketName()).thenReturn("my_bucket");
-        final CoverageModule coverageModule = new CoverageModule((port) -> new ServiceAddress("1.2.3.4", port), bucket);
+        final CoverageModule coverageModule = new CoverageModule((port) -> new InetSocketAddress("1.2.3.4", port),
+                bucket);
         assertThat(coverageModule.getJvmOptions().collect(Collectors.toList()), contains(
                 "-javaagent:/buckets/my_bucketfs/my_bucket/org.jacoco.agent-runtime.jar=output=tcpclient,address=1.2.3.4,port=3002"));
     }

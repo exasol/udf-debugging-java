@@ -1,5 +1,6 @@
 package com.exasol.udfdebugging.modules.udflogs;
 
+import java.net.InetSocketAddress;
 import java.nio.file.Path;
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +11,6 @@ import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import com.exasol.errorreporting.ExaError;
-import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.LocalServiceExposer;
 import com.exasol.udfdebugging.Module;
 
@@ -37,7 +37,8 @@ public class UdfLogsModule implements Module {
             LOGGER.log(Level.INFO, "Created log file for UDF output: {0}", file);
         };
         this.logRecorder = new LogRecorder(logFileHandler);
-        final ServiceAddress inDbAddress = localServiceExposer.exposeLocalServiceToDatabase(this.logRecorder.getPort());
+        final InetSocketAddress inDbAddress = localServiceExposer
+                .exposeLocalServiceToDatabase(this.logRecorder.getPort());
         redirectLogging(exasolConnection, inDbAddress);
     }
 
@@ -55,7 +56,7 @@ public class UdfLogsModule implements Module {
         return this.capturedLogFiles;
     }
 
-    private void redirectLogging(final Connection exasolConnection, final ServiceAddress logServerAddress) {
+    private void redirectLogging(final Connection exasolConnection, final InetSocketAddress logServerAddress) {
         try (final Statement statement = exasolConnection.createStatement()) {
             final String logServerAddressString = logServerAddress.toString();
             if (logServerAddressString.contains("'")) {

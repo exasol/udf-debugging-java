@@ -1,5 +1,6 @@
 package com.exasol.udfdebugging;
 
+import java.net.InetSocketAddress;
 import java.sql.Connection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,7 +33,7 @@ public class UdfTestSetup implements AutoCloseable {
      * @param exasolConnection  connection to the Exasol database. Make sure that your tests use the same connection
      */
     public UdfTestSetup(final String testHostIpAddress, final Bucket bucket, final Connection exasolConnection) {
-        this(port -> new ServiceAddress(testHostIpAddress, port), bucket, exasolConnection);
+        this(port -> new InetSocketAddress(testHostIpAddress, port), bucket, exasolConnection);
     }
 
     /**
@@ -57,7 +58,10 @@ public class UdfTestSetup implements AutoCloseable {
      * @param exasolConnection connection to the Exasol database. Make sure that your tests use the same connection
      */
     public UdfTestSetup(final ExasolTestSetup testSetup, final Connection exasolConnection) {
-        this(testSetup::makeLocalTcpServiceAccessibleFromDatabase, testSetup.getDefaultBucket(), exasolConnection);
+        this(port -> {
+            final ServiceAddress serviceAddress = testSetup.makeLocalTcpServiceAccessibleFromDatabase(port);
+            return new InetSocketAddress(serviceAddress.getHostName(), serviceAddress.getPort());
+        }, testSetup.getDefaultBucket(), exasolConnection);
     }
 
     /**
