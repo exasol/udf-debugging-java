@@ -6,6 +6,6 @@ Code name: Fixed NoClassDefFoundError
 
 ## Bug Fixes
 
-* #40: NoClassDefFoundError when used without exasol-test-setup-abstraction-java
+* #40: Fixed NoClassDefFoundError when used without exasol-test-setup-abstraction-java
 
 ## Dependency Updates
