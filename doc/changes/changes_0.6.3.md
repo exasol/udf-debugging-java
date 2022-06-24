@@ -1,6 +1,6 @@
-# udf-debugging-java 0.6.3, released 2022-??-??
+# udf-debugging-java 0.6.3, released 2022-06-24
 
-Code name:
+Code name: Removed ETSA dependency
 
 ## Summary
 
