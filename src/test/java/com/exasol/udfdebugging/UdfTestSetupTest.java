@@ -5,7 +5,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.*;
 
 import java.sql.*;
-import java.util.Arrays;
 import java.util.List;
 
 import org.itsallcode.junit.sysextensions.SystemOutGuard;
@@ -41,7 +40,7 @@ class UdfTestSetupTest {
     void testDebuggingEnabled() {
         System.setProperty(DEBUG_PROPERTY, "true");
         try (final UdfTestSetup udfTestSetup = getUdfTestSetup()) {
-            final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
+            final List<String> jvmOptions = List.of(udfTestSetup.getJvmOptions());
             assertThat(jvmOptions, hasItem(EXPECTED_DEBUG_JVM_OPTION));
         }
     }
@@ -59,7 +58,7 @@ class UdfTestSetupTest {
         when(testSetup.makeLocalTcpServiceAccessibleFromDatabase(anyInt()))
                 .thenReturn(new ServiceAddress("4.3.2.1", 123));
         try (final UdfTestSetup udfTestSetup = new UdfTestSetup(testSetup, this.connection)) {
-            final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
+            final List<String> jvmOptions = List.of(udfTestSetup.getJvmOptions());
             assertThat(jvmOptions, hasItem(
                     "-javaagent:/buckets/null/null/org.jacoco.agent-runtime.jar=output=tcpclient,address=4.3.2.1,port=123"));
         }
@@ -69,7 +68,7 @@ class UdfTestSetupTest {
     void testCoverageEnabled() {
         System.setProperty(COVERAGE_PROPERTY, "true");
         try (final UdfTestSetup udfTestSetup = getUdfTestSetup()) {
-            final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
+            final List<String> jvmOptions = List.of(udfTestSetup.getJvmOptions());
             assertThat(jvmOptions, hasItem(
                     "-javaagent:/buckets/null/null/org.jacoco.agent-runtime.jar=output=tcpclient,address=1.2.3.4,port=3002"));
         }
@@ -89,7 +88,7 @@ class UdfTestSetupTest {
     @Test
     void testAllModulesAreDisabledByDefault() {
         try (final UdfTestSetup udfTestSetup = getUdfTestSetup()) {
-            final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
+            final List<String> jvmOptions = List.of(udfTestSetup.getJvmOptions());
             assertThat(jvmOptions.isEmpty(), equalTo(true));
         }
     }
@@ -98,7 +97,7 @@ class UdfTestSetupTest {
     void testDebuggingDisabled() {
         System.setProperty(DEBUG_PROPERTY, "false");
         try (final UdfTestSetup udfTestSetup = getUdfTestSetup()) {
-            final List<String> jvmOptions = Arrays.asList(udfTestSetup.getJvmOptions());
+            final List<String> jvmOptions = List.of(udfTestSetup.getJvmOptions());
             assertThat(jvmOptions, not(hasItem(EXPECTED_DEBUG_JVM_OPTION)));
         }
     }
