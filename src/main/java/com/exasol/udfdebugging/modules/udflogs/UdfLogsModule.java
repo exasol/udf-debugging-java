@@ -58,7 +58,7 @@ public class UdfLogsModule implements Module {
 
     private void redirectLogging(final Connection exasolConnection, final InetSocketAddress logServerAddress) {
         try (final Statement statement = exasolConnection.createStatement()) {
-            final String logServerAddressString = logServerAddress.toString();
+            final String logServerAddressString = logServerAddress.getHostString() + ":" + logServerAddress.getPort();
             if (logServerAddressString.contains("'")) {
                 throw new IllegalArgumentException(ExaError.messageBuilder("F-UDJ-19")
                         .message("Invalid address {{address}}. The address must not contain a quotes.",
