@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>udf-debugging-java</artifactId>
-    <version>0.6.3</version>
+    <version>0.6.4</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-java/</url>
@@ -81,6 +82,8 @@
             <groupId>com.exasol</groupId>
             <artifactId>exasol-test-setup-abstraction-java</artifactId>
             <version>0.3.2</version>
+            <!-- This is not a compile-dependency since it would pull a lot of transitive dependencies (like the AWS SDK) into project where it's absolutely not needed.
+            That's possible since we only use the classes from this dependencies in methods that are ment to be used with the exasol-test-setup-abstraction-java. -->
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -258,7 +261,7 @@
     <parent>
         <artifactId>udf-debugging-java-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>0.6.3</version>
+        <version>0.6.4</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>

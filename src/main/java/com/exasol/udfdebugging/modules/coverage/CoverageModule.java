@@ -2,6 +2,7 @@ package com.exasol.udfdebugging.modules.coverage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.nio.file.Path;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Stream;
@@ -9,7 +10,6 @@ import java.util.stream.Stream;
 import com.exasol.bucketfs.Bucket;
 import com.exasol.bucketfs.BucketAccessException;
 import com.exasol.errorreporting.ExaError;
-import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.LocalServiceExposer;
 import com.exasol.udfdebugging.Module;
 
@@ -31,7 +31,7 @@ public class CoverageModule implements Module {
         assertJacocoAgentExists();
         uploadAgentToBucketFs(bucket);
         JacocoServer.startIfNotRunning();
-        final ServiceAddress proxyForHostPort = localServiceExposer.exposeLocalServiceToDatabase(JacocoServer.PORT);
+        final InetSocketAddress proxyForHostPort = localServiceExposer.exposeLocalServiceToDatabase(JacocoServer.PORT);
         this.jvmOption = "-javaagent:/buckets/" + bucket.getBucketFsName() + "/" + bucket.getBucketName() + "/"
                 + JACOCO_AGENT_NAME + "=output=tcpclient,address=" + proxyForHostPort.getHostName() + ",port="
                 + proxyForHostPort.getPort();
