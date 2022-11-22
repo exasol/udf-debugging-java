@@ -32,3 +32,11 @@ This project depends on an Amazon AWS SDK which in turn depends on the Netty HTT
 * Updated `org.junit.jupiter:junit-jupiter-params:5.8.2` to `5.9.1`
 * Updated `org.mockito:mockito-junit-jupiter:4.6.1` to `4.9.0`
 * Updated `org.testcontainers:junit-jupiter:1.17.2` to `1.17.6`
+
+### Plugin Dependency Updates
+
+* Updated `com.exasol:project-keeper-maven-plugin:2.4.6` to `2.9.1`
+* Updated `org.apache.maven.plugins:maven-enforcer-plugin:3.0.0` to `3.1.0`
+* Updated `org.apache.maven.plugins:maven-javadoc-plugin:3.4.0` to `3.4.1`
+* Updated `org.codehaus.mojo:flatten-maven-plugin:1.2.7` to `1.3.0`
+* Updated `org.codehaus.mojo:versions-maven-plugin:2.10.0` to `2.13.0`
