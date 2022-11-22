@@ -4,11 +4,11 @@ Code name: Updated dependencies on top of 0.6.4
 
 ## Summary
 
-In this release we fixed a version collision between the BucketFS library used in this project and `exasol-test-setup-abstraction-java` that lead to a class-not-found error in certain combinations.
+In this release we fixed a version collision between the BucketFS library used in this project and `exasol-test-setup-abstraction-java` that led to a class-not-found error in certain combinations.
 
 ## Known Issues
 
-This project depends on an Amazon AWS SDK which in turn depends on the Netty HTTP server version 4.1.77. This versions has a vulnerability in certificate validation that can lead to man-in-the-middle attacks. Unfortunately, no update of the AWS SDK is available at the time of this release.
+This project depends on an Amazon AWS SDK which in turn depends on the Netty HTTP server version 4.1.77. This versions has a vulnerability in certificate validation that can allow to man-in-the-middle attacks. Unfortunately, no update of the AWS SDK is available at the time of this release.
 
 ## Bugfixes
 
