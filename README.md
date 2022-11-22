@@ -49,7 +49,9 @@ System property: `test.coverage`
 
 This module installs a jacoco agent to the UDF JVM and receives the execution data using a TCP socket.
 
-This module requires additional maven configuration. Use the [project-keeper's](https://github.com/exasol/project-keeper-maven-plugin) `udf_coverage` module to verify it.
+This module requires additional maven configuration. Use  [project-keeper](https://github.com/exasol/project-keeper-maven-plugin) module `udf_coverage` to verify it.
+
+Please note that using a jacoco agent fails when running on Windows using a docker image in a linux virtual machine, see  known issue [Failing Integration Tests on Windows](#known-issue:-failing-integration-tests-on-windows).
 
 ### JProfiler
 
@@ -84,6 +86,20 @@ You can find the logs in `target/udf-logs/`. For each incoming stream (UDF insta
 ```
 Created log file for UDF output: target/udf-logs/udf-log-16150321841745991713.txt
 ```
+
+## Known Issue: Failing Integration Tests on Windows
+
+Please note that integration tests fail when running on Windows using a docker image in a linux virtual machine due to jacoco agent obtaining the [Code Coverage](#code-coverage) in the UDF.
+
+Steps to reproduce
+* Use a virtual schema, e.g. https://github.com/exasol/mysql-virtual-schema
+* with Maven command `mvn clean verify -Dtest=MySQLSqlDialectIT`
+
+Known workarounds
+* Either run integration tests from IDE Eclipse
+* or  from `ExasolObjectConfiguration.builder()` remove `.withJvmOptions(udfTestSetup.getJvmOptions())`
+* or run tests with JVM option `-Dtest.coverage="false"`
+* or run integration tests inside the VM.
 
 ## Additional Information
 
