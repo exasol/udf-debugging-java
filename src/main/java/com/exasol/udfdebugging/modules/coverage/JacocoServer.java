@@ -91,6 +91,7 @@ final class JacocoServer implements Runnable {
             this.reader.setExecutionDataVisitor(this);
         }
 
+        @Override
         public void run() {
             try {
                 while (this.reader.read()) {
@@ -107,12 +108,14 @@ final class JacocoServer implements Runnable {
             }
         }
 
+        @Override
         public void visitSessionInfo(final SessionInfo info) {
             synchronized (this.fileWriter) {
                 this.fileWriter.visitSessionInfo(info);
             }
         }
 
+        @Override
         public void visitClassExecution(final ExecutionData data) {
             synchronized (this.fileWriter) {
                 this.fileWriter.visitClassExecution(data);
