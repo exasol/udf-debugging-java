@@ -11,7 +11,7 @@ In this release we fixed a version collision between the BucketFS library used i
 This project depends on an Amazon AWS SDK which in turn depends on the Netty HTTP server version 4.1.77. This versions has a vulnerability in certificate validation that can allow to man-in-the-middle attacks. Unfortunately, no update of the AWS SDK is available at the time of this release.
 
 ## Bugfixes
-
+ 
 * #43: Fixed BucketFS library version collisions.
 * #42: Documented known issue of JaCoCo failing on Windows.
 
