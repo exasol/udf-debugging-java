@@ -89,7 +89,7 @@ Created log file for UDF output: target/udf-logs/udf-log-16150321841745991713.tx
 
 ## Known Issue: Failing Integration Tests on Windows
 
-Please note that integration tests fail when running on Windows using a docker image in a linux virtual machine due to jacoco agent obtaining the [Code Coverage](#code-coverage) in the UDF.
+Please note that integration tests fail when running on Windows using a Docker image in a Linux virtual machine due to JaCoCo agent obtaining the [Code Coverage](#code-coverage) in the UDF.
 
 Steps to reproduce
 * Use a virtual schema, e.g. https://github.com/exasol/mysql-virtual-schema
