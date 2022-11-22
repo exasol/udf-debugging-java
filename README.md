@@ -51,7 +51,7 @@ This module installs a jacoco agent to the UDF JVM and receives the execution da
 
 This module requires additional maven configuration. Use  [project-keeper](https://github.com/exasol/project-keeper-maven-plugin) module `udf_coverage` to verify it.
 
-Please note that using a jacoco agent fails when running on Windows using a docker image in a linux virtual machine, see  known issue [Failing Integration Tests on Windows](#known-issue:-failing-integration-tests-on-windows).
+Please note that using a [JaCoCo agent](https://www.jacoco.org/jacoco/trunk/doc/agent.html) fails when running on Windows using a [Docker image](https://docs.docker.com/glossary/#container-image) in a Linux virtual machine, see  known issue [Failing Integration Tests on Windows](#known-issue:-failing-integration-tests-on-windows).
 
 ### JProfiler
 
