@@ -13,7 +13,7 @@ This project depends on an Amazon AWS SDK which in turn depends on the Netty HTT
 ## Bugfixes
 
 * #43: Fixed BucketFS library version collisions.
-* #42: Documented known issue of jacoco failing on windows.
+* #42: Documented known issue of JaCoCo failing on Windows.
 
 ## Dependency Updates
 
