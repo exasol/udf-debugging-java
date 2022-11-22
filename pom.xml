@@ -9,6 +9,7 @@
     <properties>
         <junit.version>5.9.1</junit.version>
         <vscommon.version>11.0.0</vscommon.version>
+        <jacoco.version>0.8.8</jacoco.version>
         <surefire.and.failsafe.plugin.version>3.0.0-M4</surefire.and.failsafe.plugin.version>
     </properties>
     <licenses>
