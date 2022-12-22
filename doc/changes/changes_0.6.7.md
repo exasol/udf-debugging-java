@@ -1,12 +1,10 @@
-# Udf Debugging Java 0.6.7, released 2022-??-??
+# Udf Debugging Java 0.6.7, released 2022-12-22
 
 Code name: Dependency Upgrade
 
 ## Summary
 
-Updated dependencies to use artifacts from Maven Central as repository maven.exasol.com has been discontinued.
-
-Replaced transitive dependency com.fasterxml.jackson.core:jackson-core via parquet-io-java / hadoop with an newer version. Additionally excluded vulnerabilities to sonatype-2022-6438 and CVE-2021-37533. The latter only affects the FTP client which is not used by VSDF or parquet.
+Updated dependencies after breaking changes in interface of bucketfs-java to re-enable compatibility with newer versions of bucketfs-java used by other libraries, e.g. exasol-testcontainers.
 
 ## Changes
 

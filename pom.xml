@@ -181,9 +181,8 @@
             <plugin>
                 <groupId>org.sonatype.ossindex.maven</groupId>
                 <artifactId>ossindex-maven-plugin</artifactId>
-                <!-- Vulnerability in io.netty:netty-handler:4.1.77.Final
-                    https://ossindex.sonatype.org/vulnerability/sonatype-2020-0026
-                    Excluded until a fixed version is available. exasol-test-setup-abstraction-java dependency -->
+                <!-- io.netty:netty-handler:
+                Not a vulnerability in netty but how it is configured by the client software.amazon.awssdk:netty-nio-client. -->
                 <configuration>
                     <excludeVulnerabilityIds>
                         <exclude>sonatype-2020-0026</exclude>
