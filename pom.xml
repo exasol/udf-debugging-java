@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>udf-debugging-java</artifactId>
-    <version>0.6.6</version>
+    <version>0.6.7</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-java/</url>
@@ -74,12 +74,12 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>bucketfs-java</artifactId>
-            <version>2.4.1</version>
+            <version>2.6.0</version>
         </dependency>
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-test-setup-abstraction-java</artifactId>
-            <version>1.0.0</version>
+            <version>1.1.1</version>
             <!-- This is not a compile-dependency since it would pull a lot of transitive dependencies (like the AWS
             SDK) into project where it's absolutely not needed. That's possible since we only use the classes from this
             dependencies in methods that are ment to be used with the exasol-test-setup-abstraction-java. -->
@@ -93,7 +93,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.4</version>
+            <version>2.0.6</version>
         </dependency>
         <!-- test dependencies -->
         <dependency>
@@ -111,7 +111,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>4.9.0</version>
+            <version>4.10.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -124,7 +124,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-testcontainers</artifactId>
-            <version>6.3.1</version>
+            <version>6.4.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -195,7 +195,7 @@
     <parent>
         <artifactId>udf-debugging-java-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>0.6.6</version>
+        <version>0.6.7</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
