@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>udf-debugging-java</artifactId>
     <version>0.6.7</version>
@@ -165,16 +167,18 @@
                 <artifactId>ossindex-maven-plugin</artifactId>
                 <configuration>
                     <excludeVulnerabilityIds>
-                        <!-- io.netty:netty-handler:
-                        Not a vulnerability in
-                        netty but how it
-                        is configured by the client
-                        software.amazon.awssdk:netty-nio-client. We are not
-                        affected,
-                        see https://github.com/aws/aws-sdk-java-v2/issues/3263
-                        for
-                        details -->
+                        <!-- io.netty:netty-handler: Not a vulnerability in netty but how it
+                        is
+                        configured by the client software.amazon.awssdk:netty-nio-client. We are not
+                        affected, see https://github.com/aws/aws-sdk-java-v2/issues/3263 for details -->
                         <exclude>sonatype-2020-0026</exclude>
+                        <!-- Transitive dependency fr.turri:aXMLRPC used by
+                        com.exasol:bucketfs-java.
+                        CVE-2020-36641 is reported
+                        to be fixed in aXMLRPC 1.12.1. We use version 1.13.0,
+                        so
+                        this is a false positive. -->
+                        <exclude>CVE-2020-36641</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
