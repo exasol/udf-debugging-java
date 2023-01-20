@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 
 import com.exasol.bucketfs.Bucket;
 import com.exasol.exasoltestsetup.ExasolTestSetup;
-import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.modules.coverage.CoverageModuleFactory;
 import com.exasol.udfdebugging.modules.debugging.DebuggingModuleFactory;
 import com.exasol.udfdebugging.modules.jprofiler.JProfilerModuleFactory;
@@ -59,7 +58,7 @@ public class UdfTestSetup implements AutoCloseable {
      */
     public UdfTestSetup(final ExasolTestSetup testSetup, final Connection exasolConnection) {
         this(port -> {
-            final ServiceAddress serviceAddress = testSetup.makeLocalTcpServiceAccessibleFromDatabase(port);
+            final InetSocketAddress serviceAddress = testSetup.makeLocalTcpServiceAccessibleFromDatabase(port);
             return new InetSocketAddress(serviceAddress.getHostName(), serviceAddress.getPort());
         }, testSetup.getDefaultBucket(), exasolConnection);
     }

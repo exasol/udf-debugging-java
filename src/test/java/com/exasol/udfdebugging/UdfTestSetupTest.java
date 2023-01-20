@@ -2,8 +2,10 @@ package com.exasol.udfdebugging;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
+import java.net.InetSocketAddress;
 import java.sql.*;
 import java.util.List;
 
@@ -17,7 +19,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.exasol.bucketfs.Bucket;
 import com.exasol.exasoltestsetup.ExasolTestSetup;
-import com.exasol.exasoltestsetup.ServiceAddress;
 
 @ExtendWith(MockitoExtension.class)
 @ExtendWith(SystemOutGuard.class)
@@ -56,7 +57,7 @@ class UdfTestSetupTest {
         final Bucket bucket = mock(Bucket.class);
         when(testSetup.getDefaultBucket()).thenReturn(bucket);
         when(testSetup.makeLocalTcpServiceAccessibleFromDatabase(anyInt()))
-                .thenReturn(new ServiceAddress("4.3.2.1", 123));
+                .thenReturn(new InetSocketAddress("4.3.2.1", 123));
         try (final UdfTestSetup udfTestSetup = new UdfTestSetup(testSetup, this.connection)) {
             final List<String> jvmOptions = List.of(udfTestSetup.getJvmOptions());
             assertThat(jvmOptions, hasItem(
