@@ -13,6 +13,7 @@ import com.exasol.udfdebugging.modules.TestSetup;
 
 class UdfLogsModuleIT {
 
+    // This will fail when the test does not run on Docker host, e.g. on Windows or macOS.
     @Test
     void testGetLog() throws SQLException, IOException {
         try (final TestSetup testSetup = new TestSetup();

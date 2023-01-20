@@ -18,9 +18,9 @@ class CoverageModuleIT {
     @Test
     void testCoverageReportIsWritten() throws SQLException, IOException {
         deleteExecutionFile();
-        final TestSetup udfSetup = new TestSetup();
-        try (final CoverageModule coverageModule = new CoverageModule(udfSetup.getHostPortProxy(),
-                udfSetup.getDefaultBucket())) {
+        try (final TestSetup udfSetup = new TestSetup();
+                final CoverageModule coverageModule = new CoverageModule(udfSetup.getHostPortProxy(),
+                        udfSetup.getDefaultBucket())) {
             udfSetup.runJavaUdf(coverageModule.getJvmOptions(), "");
             assertThat(countReportedJacocoSessions(), equalTo(1));
         }
