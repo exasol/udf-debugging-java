@@ -1,32 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>udf-debugging-java</artifactId>
-    <version>0.6.6</version>
+    <version>0.6.7</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-java/</url>
     <properties>
-        <junit.version>5.9.1</junit.version>
+        <junit.version>5.9.2</junit.version>
         <vscommon.version>11.0.0</vscommon.version>
         <jacoco.version>0.8.8</jacoco.version>
-        <surefire.and.failsafe.plugin.version>3.0.0-M4</surefire.and.failsafe.plugin.version>
     </properties>
-    <licenses>
-        <license>
-            <name>MIT</name>
-            <url>https://opensource.org/licenses/MIT</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <developers>
-        <developer>
-            <name>Exasol</name>
-            <email>opensource@exasol.com</email>
-            <organization>Exasol AG</organization>
-            <organizationUrl>https://www.exasol.com/</organizationUrl>
-        </developer>
-    </developers>
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -37,11 +23,6 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-    <scm>
-        <connection>scm:git:https://github.com/exasol/udf-debugging-java.git</connection>
-        <developerConnection>scm:git:https://github.com/exasol/udf-debugging-java.git</developerConnection>
-        <url>https://github.com/exasol/udf-debugging-java/tree/master</url>
-    </scm>
     <dependencies>
         <dependency>
             <groupId>jakarta.json</groupId>
@@ -79,10 +60,13 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-test-setup-abstraction-java</artifactId>
-            <version>1.1.1</version>
-            <!-- This is not a compile-dependency since it would pull a lot of transitive dependencies (like the AWS
-            SDK) into project where it's absolutely not needed. That's possible since we only use the classes from this
-            dependencies in methods that are ment to be used with the exasol-test-setup-abstraction-java. -->
+            <version>2.0.0</version>
+            <!-- This is not a compile-dependency since it would pull a lot of transitive
+            dependencies (like the AWS
+            SDK) into project where it's absolutely not
+            needed. That's possible since we only use the classes from this
+            dependencies
+            in methods that are ment to be used with the exasol-test-setup-abstraction-java. -->
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -111,7 +95,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>4.10.0</version>
+            <version>5.0.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -124,7 +108,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-testcontainers</artifactId>
-            <version>6.4.1</version>
+            <version>6.5.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -136,7 +120,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>test-db-builder-java</artifactId>
-            <version>3.4.1</version>
+            <version>3.4.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -181,11 +165,20 @@
             <plugin>
                 <groupId>org.sonatype.ossindex.maven</groupId>
                 <artifactId>ossindex-maven-plugin</artifactId>
-                <!-- io.netty:netty-handler:
-                Not a vulnerability in netty but how it is configured by the client software.amazon.awssdk:netty-nio-client. -->
                 <configuration>
                     <excludeVulnerabilityIds>
+                        <!-- io.netty:netty-handler: Not a vulnerability in netty but how it
+                        is
+                        configured by the client software.amazon.awssdk:netty-nio-client. We are not
+                        affected, see https://github.com/aws/aws-sdk-java-v2/issues/3263 for details -->
                         <exclude>sonatype-2020-0026</exclude>
+                        <!-- Transitive dependency fr.turri:aXMLRPC used by
+                        com.exasol:bucketfs-java.
+                        CVE-2020-36641 is reported
+                        to be fixed in aXMLRPC 1.12.1. We use version 1.13.0,
+                        so
+                        this is a false positive. -->
+                        <exclude>CVE-2020-36641</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
@@ -194,7 +187,7 @@
     <parent>
         <artifactId>udf-debugging-java-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>0.6.6</version>
+        <version>0.6.7</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
