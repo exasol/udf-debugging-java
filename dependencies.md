@@ -101,7 +101,7 @@
 [37]: https://github.com/exasol/project-keeper/blob/main/LICENSE
 [38]: https://sonatype.github.io/ossindex-maven/maven-plugin/
 [39]: https://maven.apache.org/surefire/maven-surefire-plugin/
-[40]: https://www.mojohaus.org/versions-maven-plugin/
+[40]: https://www.mojohaus.org/versions/versions-maven-plugin/
 [41]: https://maven.apache.org/plugins/maven-deploy-plugin/
 [42]: https://maven.apache.org/plugins/maven-gpg-plugin/
 [43]: https://maven.apache.org/plugins/maven-source-plugin/
