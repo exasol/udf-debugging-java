@@ -1,6 +1,5 @@
 package com.exasol.udfdebugging;
 
-import java.net.InetSocketAddress;
 import java.sql.Connection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,12 +31,12 @@ public class UdfTestSetup implements AutoCloseable {
      * @param exasolConnection  connection to the Exasol database. Make sure that your tests use the same connection
      */
     public UdfTestSetup(final String testHostIpAddress, final Bucket bucket, final Connection exasolConnection) {
-        this(port -> new InetSocketAddress(testHostIpAddress, port), bucket, exasolConnection);
+        this(LocalServiceExposer.forHost(testHostIpAddress), bucket, exasolConnection);
     }
 
     /**
      * Create a new instance of {@link UdfTestSetup}.
-     * 
+     *
      * @param localServiceExposer Proxy factory that makes ports of the test host available in the container
      * @param bucket              BucketFS bucket to upload resource to
      * @param exasolConnection    connection to the Exasol database. Make sure that your tests use the same connection
@@ -52,20 +51,17 @@ public class UdfTestSetup implements AutoCloseable {
 
     /**
      * Create a new instance of {@link UdfTestSetup}.
-     * 
+     *
      * @param testSetup        Exasol test setup
      * @param exasolConnection connection to the Exasol database. Make sure that your tests use the same connection
      */
     public UdfTestSetup(final ExasolTestSetup testSetup, final Connection exasolConnection) {
-        this(port -> {
-            final InetSocketAddress serviceAddress = testSetup.makeLocalTcpServiceAccessibleFromDatabase(port);
-            return new InetSocketAddress(serviceAddress.getHostName(), serviceAddress.getPort());
-        }, testSetup.getDefaultBucket(), exasolConnection);
+        this(testSetup::makeLocalTcpServiceAccessibleFromDatabase, testSetup.getDefaultBucket(), exasolConnection);
     }
 
     /**
      * Get JVM options required for this setup.
-     * 
+     *
      * @return array of JVM options
      */
     public String[] getJvmOptions() {

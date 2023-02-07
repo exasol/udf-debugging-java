@@ -1,7 +1,6 @@
 package com.exasol.udfdebugging.modules;
 
 import java.io.Closeable;
-import java.net.InetSocketAddress;
 import java.sql.*;
 import java.util.stream.Stream;
 
@@ -27,7 +26,7 @@ public class TestSetup implements Closeable, AutoCloseable {
     }
 
     public LocalServiceExposer getHostPortProxy() {
-        return port -> new InetSocketAddress(this.exasol.getHostIp(), port);
+        return LocalServiceExposer.forHost(this.exasol.getHostIp());
     }
 
     public Bucket getDefaultBucket() {
