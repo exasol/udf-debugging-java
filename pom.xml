@@ -2,14 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>udf-debugging-java</artifactId>
-    <version>0.6.8</version>
+    <version>0.6.9</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-java/</url>
     <properties>
-        <junit.version>5.9.2</junit.version>
-        <vscommon.version>11.0.0</vscommon.version>
-        <jacoco.version>0.8.8</jacoco.version>
+        <junit.version>5.9.3</junit.version>
+        <jacoco.version>0.8.10</jacoco.version>
     </properties>
     <distributionManagement>
         <snapshotRepository>
@@ -25,7 +24,7 @@
         <dependency>
             <groupId>jakarta.json</groupId>
             <artifactId>jakarta.json-api</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.2</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish</groupId>
@@ -36,7 +35,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>error-reporting-java</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.jacoco</groupId>
@@ -53,12 +52,12 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>bucketfs-java</artifactId>
-            <version>3.0.0</version>
+            <version>3.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-test-setup-abstraction-java</artifactId>
-            <version>2.0.0</version>
+            <version>2.0.2</version>
             <!-- This is not a compile-dependency since it would pull a lot of transitive
             dependencies (like the AWS
             SDK) into project where it's absolutely not
@@ -70,12 +69,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>
-            <version>1.22</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.0.6</version>
+            <version>1.23.0</version>
         </dependency>
         <!-- test dependencies -->
         <dependency>
@@ -93,7 +87,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>5.1.1</version>
+            <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -106,13 +100,13 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-testcontainers</artifactId>
-            <version>6.5.1</version>
+            <version>6.6.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>1.17.6</version>
+            <version>1.18.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -126,6 +120,12 @@
             <artifactId>junit5-system-extensions</artifactId>
             <version>1.2.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- Enable log output for integration tests -->
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>2.0.7</version>
         </dependency>
     </dependencies>
     <build>
@@ -151,7 +151,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>2.9.3</version>
+                <version>2.9.7</version>
                 <executions>
                     <execution>
                         <goals>
@@ -165,11 +165,6 @@
                 <artifactId>ossindex-maven-plugin</artifactId>
                 <configuration>
                     <excludeVulnerabilityIds>
-                        <!-- io.netty:netty-handler: Not a vulnerability in netty but how it
-                        is
-                        configured by the client software.amazon.awssdk:netty-nio-client. We are not
-                        affected, see https://github.com/aws/aws-sdk-java-v2/issues/3263 for details -->
-                        <exclude>sonatype-2020-0026</exclude>
                         <!-- Transitive dependency fr.turri:aXMLRPC used by
                         com.exasol:bucketfs-java.
                         CVE-2020-36641 is reported
@@ -185,7 +180,7 @@
     <parent>
         <artifactId>udf-debugging-java-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>0.6.8</version>
+        <version>0.6.9</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
