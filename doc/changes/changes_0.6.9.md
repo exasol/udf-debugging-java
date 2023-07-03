@@ -23,6 +23,11 @@ This release fixes the following vulnerability in `provided` dependency `io.nett
 * Removed `org.slf4j:slf4j-api:2.0.6`
 * Added `org.slf4j:slf4j-jdk14:2.0.7`
 
+### Runtime Dependency Updates
+
+* Added `org.eclipse.parsson:parsson:1.1.2`
+* Removed `org.glassfish:jakarta.json:2.0.1`
+
 ### Test Dependency Updates
 
 * Updated `com.exasol:exasol-testcontainers:6.5.1` to `6.6.0`
