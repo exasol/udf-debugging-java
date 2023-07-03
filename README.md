@@ -1,7 +1,7 @@
 # UDF Debugging Tools for Java
 
 [![Build Status](https://github.com/exasol/udf-debugging-java/actions/workflows/ci-build.yml/badge.svg)](https://github.com/exasol/udf-debugging-java/actions/workflows/ci-build.yml)
-[![Maven Central – udf-debugging-java](https://img.shields.io/maven-central/v/com.exasol/udf-debugging-java)](https://search.maven.org/artifact/com.exasol/udf-debugging-java)
+[![Maven Central &ndash; udf-debugging-java](https://img.shields.io/maven-central/v/com.exasol/udf-debugging-java)](https://search.maven.org/artifact/com.exasol/udf-debugging-java)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Audf-debugging-java&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.exasol%3Audf-debugging-java)
 
