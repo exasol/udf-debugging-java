@@ -1,4 +1,4 @@
-# Udf Debugging Java 0.6.10, released 2023-??-??
+# Udf Debugging Java 0.6.10, released 2023-07-05
 
 Code name: Reduce dependencies
 
