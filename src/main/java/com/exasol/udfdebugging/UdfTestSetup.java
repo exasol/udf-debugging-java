@@ -71,9 +71,9 @@ public class UdfTestSetup implements AutoCloseable {
     }
 
     private String getInfoMessage() {
-        return AVAILABLE_MODULES.stream()
+        return "UDF debug config: " + AVAILABLE_MODULES.stream()
                 .map(module -> module.getModulePropertyName() + ": " + (module.isEnabled() ? "✓" : "✗"))
-                .collect(Collectors.joining("; ")) + "\n";
+                .collect(Collectors.joining("; "));
     }
 
     @Override
