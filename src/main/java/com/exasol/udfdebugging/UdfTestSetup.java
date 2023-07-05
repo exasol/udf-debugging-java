@@ -2,10 +2,8 @@ package com.exasol.udfdebugging;
 
 import java.sql.Connection;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.exasol.bucketfs.Bucket;
 import com.exasol.exasoltestsetup.ExasolTestSetup;
@@ -20,7 +18,7 @@ import com.exasol.udfdebugging.modules.udflogs.UdfLogsModuleFactory;
 public class UdfTestSetup implements AutoCloseable {
     private static final List<ModuleFactory> AVAILABLE_MODULES = List.of(new DebuggingModuleFactory(),
             new CoverageModuleFactory(), new JProfilerModuleFactory(), new UdfLogsModuleFactory());
-    private static final Logger LOGGER = LoggerFactory.getLogger(UdfTestSetup.class);
+    private static final Logger LOGGER = Logger.getLogger(UdfTestSetup.class.getName());
     private final List<Module> enabledModules;
 
     /**
@@ -69,15 +67,13 @@ public class UdfTestSetup implements AutoCloseable {
     }
 
     private void printInfoMessage() {
-        if (LOGGER.isInfoEnabled()) {
-            LOGGER.info(getInfoMessage());
-        }
+        LOGGER.info(this::getInfoMessage);
     }
 
     private String getInfoMessage() {
-        return AVAILABLE_MODULES.stream()
+        return "UDF debug config: " + AVAILABLE_MODULES.stream()
                 .map(module -> module.getModulePropertyName() + ": " + (module.isEnabled() ? "✓" : "✗"))
-                .collect(Collectors.joining("; ")) + "\n";
+                .collect(Collectors.joining("; "));
     }
 
     @Override
