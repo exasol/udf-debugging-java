@@ -4,7 +4,11 @@ Code name: Reduce dependencies
 
 ## Summary
 
-This release replaces code that causes an unnecessary dependency on slf4j-api.
+This release uses readable and sortable names for UDF debug log files written to `target/udf-logs/`. The release also replaces code that causes an unnecessary dependency on `slf4j-api`.
+
+## Features
+
+* #56: Used readable and sortable names for UDF debug log files.
 
 ## Refactoring
 

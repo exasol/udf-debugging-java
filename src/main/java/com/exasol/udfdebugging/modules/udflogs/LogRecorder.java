@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.*;
+import java.time.Instant;
 import java.util.function.Consumer;
 
 import com.exasol.errorreporting.ExaError;
@@ -94,7 +95,8 @@ public final class LogRecorder implements AutoCloseable {
         @Override
         public void run() {
             try {
-                final Path logFile = Files.createTempFile(LOG_DIRECTORY, "udf-log-", ".txt");
+                final Path logFile = Files.createTempFile(LOG_DIRECTORY, "udf-log-" + Instant.now().toString() + "-",
+                        ".log");
                 this.logFileHandler.accept(logFile);
                 Files.copy(this.socket.getInputStream(), logFile, StandardCopyOption.REPLACE_EXISTING);
             } catch (final IOException exception) {
