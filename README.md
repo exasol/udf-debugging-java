@@ -84,7 +84,7 @@ This module redirects the STDOUT from UDFs to files on the test host.
 You can find the logs in `target/udf-logs/`. For each incoming stream (UDF instance) this module creates one file and logs its name:
 
 ```
-Created log file for UDF output: target/udf-logs/udf-log-16150321841745991713.txt
+Created log file for UDF output: target/udf-logs/udf-log-2023-07-05T10:49:09.316547Z-576983159368731727.log
 ```
 
 ## Known Issue: Failing Integration Tests on Windows
