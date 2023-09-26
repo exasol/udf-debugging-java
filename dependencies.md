@@ -11,7 +11,7 @@
 | [BucketFS Java][7]                      | [MIT License][8]                                                                                             |
 | [exasol-test-setup-abstraction-java][9] | [MIT License][10]                                                                                            |
 | [Apache Commons Compress][11]           | [Apache-2.0][12]                                                                                             |
-| [SLF4J JDK14 Binding][13]               | [MIT License][14]                                                                                            |
+| [SLF4J JDK14 Provider][13]              | [MIT License][14]                                                                                            |
 
 ## Test Dependencies
 
@@ -48,7 +48,7 @@
 | [Versions Maven Plugin][41]                             | [Apache License, Version 2.0][12]              |
 | [duplicate-finder-maven-plugin Maven Mojo][42]          | [Apache License 2.0][43]                       |
 | [Apache Maven Deploy Plugin][44]                        | [Apache-2.0][12]                               |
-| [Apache Maven GPG Plugin][45]                           | [Apache License, Version 2.0][12]              |
+| [Apache Maven GPG Plugin][45]                           | [Apache-2.0][12]                               |
 | [Apache Maven Source Plugin][46]                        | [Apache License, Version 2.0][12]              |
 | [Apache Maven Javadoc Plugin][47]                       | [Apache-2.0][12]                               |
 | [Nexus Staging Maven Plugin][48]                        | [Eclipse Public License][49]                   |
@@ -85,7 +85,7 @@
 [20]: http://www.opensource.org/licenses/bsd-license.php
 [21]: https://github.com/exasol/exasol-testcontainers/
 [22]: https://github.com/exasol/exasol-testcontainers/blob/main/LICENSE
-[23]: https://testcontainers.org
+[23]: https://java.testcontainers.org
 [24]: http://opensource.org/licenses/MIT
 [25]: https://github.com/exasol/test-db-builder-java/
 [26]: https://github.com/exasol/test-db-builder-java/blob/main/LICENSE
@@ -104,7 +104,7 @@
 [39]: https://sonatype.github.io/ossindex-maven/maven-plugin/
 [40]: https://maven.apache.org/surefire/maven-surefire-plugin/
 [41]: https://www.mojohaus.org/versions/versions-maven-plugin/
-[42]: https://github.com/basepom/duplicate-finder-maven-plugin
+[42]: https://basepom.github.io/duplicate-finder-maven-plugin
 [43]: http://www.apache.org/licenses/LICENSE-2.0.html
 [44]: https://maven.apache.org/plugins/maven-deploy-plugin/
 [45]: https://maven.apache.org/plugins/maven-gpg-plugin/
