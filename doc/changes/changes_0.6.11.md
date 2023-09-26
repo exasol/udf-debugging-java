@@ -6,6 +6,8 @@ Code name: Fix CVE-2023-42503
 
 This release fixes CVE-2023-42503 in `org.apache.commons:commons-compress` by upgrading dependencies.
 
+**Known issue:** Transitive dependency `io.netty:netty-handler` used by `software.amazon.awssdk:cloudformation` in scope `provided` contains vulnerability CVE-2023-4586. We assume that the AWS SDK's usage of netty is not affected. 
+
 ## Security
 
 * #61: Fixed CVE-2023-42503 in `org.apache.commons:commons-compress`
