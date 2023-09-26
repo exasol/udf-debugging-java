@@ -1,4 +1,4 @@
-# Udf Debugging Java 0.6.11, released 2023-??-??
+# Udf Debugging Java 0.6.11, released 2023-09-26
 
 Code name: Fix CVE-2023-42503
 
