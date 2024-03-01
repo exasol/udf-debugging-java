@@ -1,4 +1,4 @@
-# Udf Debugging Java 0.6.12, released 2024-02-29
+# Udf Debugging Java 0.6.12, released 2024-03-01
 
 Code name: Fix CVE-2024-25710 and CVE-2024-26308 in compile dependency `org.apache.commons:commons-compress`
 
