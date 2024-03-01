@@ -76,6 +76,7 @@ class UdfTestSetupTest {
     }
 
     @Test
+    @SuppressWarnings("try") // Try-with-resources variable not used in try block
     void testUdfLogsEnabled() throws SQLException {
         final Statement statement = mock(Statement.class);
         when(this.connection.createStatement()).thenReturn(statement);

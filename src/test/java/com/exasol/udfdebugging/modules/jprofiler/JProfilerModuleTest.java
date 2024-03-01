@@ -24,6 +24,7 @@ class JProfilerModuleTest {
     }
 
     @Test
+    @SuppressWarnings("try") // Try-with-resources variable not used in try block
     void testUpload() throws BucketAccessException, TimeoutException, FileNotFoundException {
         final Bucket bucket = mock(Bucket.class);
         try (final JProfilerModule jProfilerModule = new JProfilerModule(bucket)) {
