@@ -8,7 +8,7 @@ This release fixes vulnerabilities CVE-2024-25710 and CVE-2024-26308 in compile 
 
 ## Security
 
-* #36: Fixed CVE-2024-25710 and CVE-2024-26308 in compile dependency `org.apache.commons:commons-compress`
+* #63: Fixed CVE-2024-25710 and CVE-2024-26308 in compile dependency `org.apache.commons:commons-compress`
 
 ## Dependency Updates
 
