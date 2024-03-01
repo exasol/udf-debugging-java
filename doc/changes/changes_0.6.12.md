@@ -14,7 +14,7 @@ This release fixes vulnerabilities CVE-2024-25710 and CVE-2024-26308 in compile 
 
 ### Compile Dependency Updates
 
-* Updated `com.exasol:bucketfs-java:3.1.0` to `3.1.1`
+* Updated `com.exasol:bucketfs-java:3.1.0` to `3.1.2`
 * Updated `jakarta.json:jakarta.json-api:2.1.2` to `2.1.3`
 * Updated `org.apache.commons:commons-compress:1.24.0` to `1.26.0`
 * Updated `org.jacoco:org.jacoco.core:0.8.10` to `0.8.11`
