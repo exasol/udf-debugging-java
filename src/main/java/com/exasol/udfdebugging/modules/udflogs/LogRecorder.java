@@ -37,7 +37,7 @@ public final class LogRecorder implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         this.server.close();
     }
 
