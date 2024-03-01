@@ -56,7 +56,7 @@ class LogRecorderTest {
         public void write(final String message) throws InterruptedException {
             this.writer.write(message);
             this.writer.flush();
-            Thread.sleep(100);
+            Thread.sleep(200);
         }
 
         @Override
