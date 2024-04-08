@@ -7,7 +7,7 @@
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [Jakarta JSON Processing API][0]        | [Eclipse Public License 2.0][1]; [GNU General Public License, version 2 with the GNU Classpath Exception][2] |
 | [error-reporting-java][3]               | [MIT License][4]                                                                                             |
-| [JaCoCo :: Core][5]                     | [Eclipse Public License 2.0][6]                                                                              |
+| [JaCoCo :: Core][5]                     | [EPL-2.0][6]                                                                                                 |
 | [BucketFS Java][7]                      | [MIT License][8]                                                                                             |
 | [exasol-test-setup-abstraction-java][9] | [MIT License][10]                                                                                            |
 | [Apache Commons Compress][11]           | [Apache-2.0][12]                                                                                             |
@@ -17,7 +17,7 @@
 
 | Dependency                                      | License                           |
 | ----------------------------------------------- | --------------------------------- |
-| [JaCoCo :: Agent][5]                            | [Eclipse Public License 2.0][6]   |
+| [JaCoCo :: Agent][5]                            | [EPL-2.0][6]                      |
 | [JUnit Jupiter Engine][15]                      | [Eclipse Public License v2.0][16] |
 | [JUnit Jupiter Params][15]                      | [Eclipse Public License v2.0][16] |
 | [mockito-junit-jupiter][17]                     | [MIT][18]                         |
@@ -54,7 +54,7 @@
 | [Apache Maven Javadoc Plugin][48]                       | [Apache-2.0][12]                               |
 | [Nexus Staging Maven Plugin][49]                        | [Eclipse Public License][50]                   |
 | [Maven Failsafe Plugin][51]                             | [Apache-2.0][12]                               |
-| [JaCoCo :: Maven Plugin][52]                            | [Eclipse Public License 2.0][6]                |
+| [JaCoCo :: Maven Plugin][52]                            | [EPL-2.0][6]                                   |
 | [error-code-crawler-maven-plugin][53]                   | [MIT License][54]                              |
 | [Reproducible Build Maven Plugin][55]                   | [Apache 2.0][34]                               |
 
