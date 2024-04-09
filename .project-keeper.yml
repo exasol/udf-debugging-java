@@ -9,5 +9,7 @@ linkReplacements:
 build:
   runnerOs: ubuntu-20.04
   exasolDbVersions:
-    - "8.25.0"
-    - "7.1.25"
+    - "8.26.0"
+    - "7.1.26"
+excludes:
+  - "E-PK-CORE-17: Missing required file: 'release_config.yml'"
