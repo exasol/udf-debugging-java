@@ -1,14 +1,36 @@
-# Udf Debugging Java 0.6.14, released 2024-??-??
+# Udf Debugging Java 0.6.14, released 2024-11-18
 
-Code name:
+Code name: Fix CVE-2024-47535: io.netty:netty-common:jar:4.1.108.Final:runtime
 
 ## Summary
 
-## Features
+This release fixes CVE-2024-47535 in `io.netty:netty-common:jar:4.1.108.Final:runtime`.
 
-* ISSUE_NUMBER: description
+## Security
+
+* #67: Fixed CVE-2024-47535 in `io.netty:netty-common:jar:4.1.108.Final:runtime`
 
 ## Dependency Updates
+
+### Compile Dependency Updates
+
+* Updated `com.exasol:bucketfs-java:3.1.2` to `3.2.0`
+* Updated `org.apache.commons:commons-compress:1.26.1` to `1.27.1`
+* Updated `org.slf4j:slf4j-jdk14:2.0.12` to `2.0.16`
+
+### Runtime Dependency Updates
+
+* Updated `org.eclipse.parsson:parsson:1.1.6` to `1.1.7`
+
+### Test Dependency Updates
+
+* Updated `com.exasol:exasol-testcontainers:7.0.1` to `7.1.1`
+* Updated `com.exasol:test-db-builder-java:3.5.4` to `3.6.0`
+* Updated `org.itsallcode:junit5-system-extensions:1.2.0` to `1.2.2`
+* Updated `org.junit.jupiter:junit-jupiter-engine:5.10.2` to `5.11.3`
+* Updated `org.junit.jupiter:junit-jupiter-params:5.10.2` to `5.11.3`
+* Updated `org.mockito:mockito-junit-jupiter:5.11.0` to `5.14.2`
+* Updated `org.testcontainers:junit-jupiter:1.19.7` to `1.20.3`
 
 ### Plugin Dependency Updates
 
