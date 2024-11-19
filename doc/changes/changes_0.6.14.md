@@ -1,14 +1,14 @@
 # Udf Debugging Java 0.6.14, released 2024-11-18
 
-Code name: Fix CVE-2024-47535: io.netty:netty-common:jar:4.1.108.Final:runtime
+Code name: Fix CVE-2024-47535: io.netty:netty-common:jar:4.1.108.Final:provided
 
 ## Summary
 
-This release fixes CVE-2024-47535 in `io.netty:netty-common:jar:4.1.108.Final:runtime`.
+This release fixes CVE-2024-47535 in transitive production dependency `io.netty:netty-common:jar:4.1.108.Final:provided`.
 
 ## Security
 
-* #67: Fixed CVE-2024-47535 in `io.netty:netty-common:jar:4.1.108.Final:runtime`
+* #67: Fixed CVE-2024-47535 in `io.netty:netty-common:jar:4.1.108.Final:provided`
 
 ## Dependency Updates
 
