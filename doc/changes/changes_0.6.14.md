@@ -4,7 +4,7 @@ Code name: Fix CVE-2024-47535: io.netty:netty-common:jar:4.1.108.Final:provided
 
 ## Summary
 
-This release fixes CVE-2024-47535 in transitive production dependency `io.netty:netty-common:jar:4.1.108.Final:provided`.
+This release fixes CVE-2024-47535 in transitive production dependency `io.netty:netty-common:jar:4.1.108.Final:provided` added by `com.exasol:exasol-test-setup-abstraction-java`.
 
 ## Security
 
