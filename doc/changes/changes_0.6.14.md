@@ -1,4 +1,4 @@
-# Udf Debugging Java 0.6.14, released 2024-11-18
+# Udf Debugging Java 0.6.14, released 2024-11-19
 
 Code name: Fix CVE-2024-47535: io.netty:netty-common:jar:4.1.108.Final:provided
 
