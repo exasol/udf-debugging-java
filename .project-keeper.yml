@@ -4,19 +4,9 @@ sources:
     modules:
       - maven_central
       - integration_tests
-linkReplacements:
-  - "https://github.com/hamcrest/JavaHamcrest/hamcrest-all|https://github.com/hamcrest/JavaHamcrest"
 build:
+  # UDFs in Exasol 7.1 require Ubuntu 20.04
+  runnerOs: ubuntu-20.04
   exasolDbVersions:
     - "8.32.0"
     - "7.1.30"
-  workflows:
-    - name: ci-build.yml
-      stepCustomizations:
-        - action: INSERT_AFTER
-          job: matrix-build
-          stepId: enable-testcontainer-reuse
-          content:
-            name: Fix VM Crash in UDFs
-            id: fix-vm-crash
-            run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0

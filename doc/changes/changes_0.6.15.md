@@ -23,6 +23,8 @@ This release fixes the following vulnerabilities in test dependencies:
 ### Test Dependency Updates
 
 * Updated `com.exasol:exasol-testcontainers:7.1.1` to `7.1.3`
+* Removed `org.hamcrest:hamcrest-all:1.3`
+* Added `org.hamcrest:hamcrest:3.0`
 * Updated `org.junit.jupiter:junit-jupiter-engine:5.11.3` to `5.11.4`
 * Updated `org.junit.jupiter:junit-jupiter-params:5.11.3` to `5.11.4`
 * Updated `org.mockito:mockito-junit-jupiter:5.14.2` to `5.15.2`
