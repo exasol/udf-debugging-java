@@ -9,7 +9,7 @@ on:
   pull_request: null
 jobs:
   matrix-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run: {
         shell: bash
@@ -66,11 +66,6 @@ jobs:
         name: Enable testcontainer reuse,
         id: enable-testcontainer-reuse,
         run: echo 'testcontainers.reuse.enable=true' > "$HOME/.testcontainers.properties"
-      }
-      - {
-        name: Fix VM Crash in UDFs,
-        id: fix-vm-crash,
-        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
       }
       - name: Run tests and build with Maven
         id: build-pk-verify
