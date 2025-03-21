@@ -11,7 +11,7 @@
 | [BucketFS Java][7]                      | [MIT License][8]                                                                                             |
 | [exasol-test-setup-abstraction-java][9] | [MIT License][10]                                                                                            |
 | [Apache Commons Compress][11]           | [Apache-2.0][12]                                                                                             |
-| [SLF4J JDK14 Provider][13]              | [MIT License][14]                                                                                            |
+| [SLF4J JDK14 Provider][13]              | [MIT][14]                                                                                                    |
 
 ## Test Dependencies
 
@@ -77,7 +77,7 @@
 [11]: https://commons.apache.org/proper/commons-compress/
 [12]: https://www.apache.org/licenses/LICENSE-2.0.txt
 [13]: http://www.slf4j.org
-[14]: http://www.opensource.org/licenses/mit-license.php
+[14]: https://opensource.org/license/mit
 [15]: https://junit.org/junit5/
 [16]: https://www.eclipse.org/legal/epl-v20.html
 [17]: https://github.com/mockito/mockito
