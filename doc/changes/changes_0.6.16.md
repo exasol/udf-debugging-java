@@ -1,4 +1,4 @@
-# Udf Debugging Java 0.6.16, released 2025-??-??
+# Udf Debugging Java 0.6.16, released 2025-06-02
 
 Code name: Security updates on top of 0.6.15
 
