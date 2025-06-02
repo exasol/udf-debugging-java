@@ -1,7 +1,6 @@
 package com.exasol.udfdebugging.modules.coverage;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.file.Path;
 import java.util.concurrent.TimeoutException;
@@ -63,7 +62,7 @@ public class CoverageModule implements Module {
     }
 
     @Override
-    public void close() throws IOException {
+    public void close() {
         // nothing to close
     }
 }

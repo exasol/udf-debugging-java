@@ -20,9 +20,11 @@ class CoverageModuleTest {
     @Test
     void testUpload() throws BucketAccessException, TimeoutException, FileNotFoundException {
         final Bucket bucket = mock(Bucket.class);
-        new CoverageModule((port) -> new InetSocketAddress("1.2.3.4", port), bucket);
-        verify(bucket).uploadFile(Path.of("target", "jacoco-agent", "org.jacoco.agent-runtime.jar"),
-                "org.jacoco.agent-runtime.jar");
+        try (CoverageModule coverageModule = new CoverageModule(port -> new InetSocketAddress("1.2.3.4", port),
+                bucket)) {
+            verify(bucket).uploadFile(Path.of("target", "jacoco-agent", "org.jacoco.agent-runtime.jar"),
+                    "org.jacoco.agent-runtime.jar");
+        }
     }
 
     @Test
@@ -30,9 +32,10 @@ class CoverageModuleTest {
         final Bucket bucket = mock(Bucket.class);
         when(bucket.getBucketFsName()).thenReturn("my_bucketfs");
         when(bucket.getBucketName()).thenReturn("my_bucket");
-        final CoverageModule coverageModule = new CoverageModule((port) -> new InetSocketAddress("1.2.3.4", port),
-                bucket);
-        assertThat(coverageModule.getJvmOptions().collect(Collectors.toList()), contains(
-                "-javaagent:/buckets/my_bucketfs/my_bucket/org.jacoco.agent-runtime.jar=output=tcpclient,address=1.2.3.4,port=3002"));
+        try (final CoverageModule coverageModule = new CoverageModule(port -> new InetSocketAddress("1.2.3.4", port),
+                bucket)) {
+            assertThat(coverageModule.getJvmOptions().collect(Collectors.toList()), contains(
+                    "-javaagent:/buckets/my_bucketfs/my_bucket/org.jacoco.agent-runtime.jar=output=tcpclient,address=1.2.3.4,port=3002"));
+        }
     }
 }
