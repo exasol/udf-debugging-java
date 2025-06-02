@@ -5,8 +5,8 @@ sources:
       - maven_central
       - integration_tests
 build:
-  # UDFs in Exasol 7.1 require Ubuntu 20.04
-  runnerOs: ubuntu-20.04
+  runnerOs: ubuntu-24.04
   exasolDbVersions:
     - "8.34.0"
-    - "7.1.30"
+    # UDFs in Exasol 7.1 with Ubuntu 20.04 will be fixed in the next Docker-DB release
+    # - "7.1.30"
