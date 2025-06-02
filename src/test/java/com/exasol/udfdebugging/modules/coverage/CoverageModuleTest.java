@@ -18,6 +18,7 @@ import com.exasol.bucketfs.BucketAccessException;
 class CoverageModuleTest {
 
     @Test
+    @SuppressWarnings("try") // auto-closeable resource coverageModule is never referenced in body of try statement
     void testUpload() throws BucketAccessException, TimeoutException, FileNotFoundException {
         final Bucket bucket = mock(Bucket.class);
         try (CoverageModule coverageModule = new CoverageModule(port -> new InetSocketAddress("1.2.3.4", port),
