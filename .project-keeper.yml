@@ -8,5 +8,5 @@ build:
   # UDFs in Exasol 7.1 require Ubuntu 20.04
   runnerOs: ubuntu-20.04
   exasolDbVersions:
-    - "8.32.0"
+    - "8.34.0"
     - "7.1.30"
