@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>udf-debugging-java</artifactId>
-    <version>0.6.16</version>
+    <version>0.6.17</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-java/</url>
@@ -116,6 +116,17 @@
             <version>2.0.17</version>
         </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <!--Transitive dependency update for CVE-2025-48924, direct dependency: org.apache.commons:commons-lang3:3.16.0:compile-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.18.0</version>
+                <scope>runtime</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>
@@ -139,7 +150,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>5.1.0</version>
+                <version>5.2.3</version>
                 <executions>
                     <execution>
                         <goals>
@@ -168,7 +179,7 @@
                         <!-- Dependency fr.turri:aXMLRPC used for connecting to ExaOperation.
                              We accept this vulnerability (CWE-833: Deadlock) as we assume that we only connect to the known endpoint ExaOperations. -->
                         <exclude>CVE-2017-10355</exclude>
-                         <!-- False positive in OSS Index for Exasol's JDBC driver because the fix version is missing. -->
+                        <!-- False positive in OSS Index for Exasol's JDBC driver because the fix version is missing. -->
                         <exclude>CVE-2024-55551</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
@@ -178,7 +189,7 @@
     <parent>
         <artifactId>udf-debugging-java-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>0.6.16</version>
+        <version>0.6.17</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
