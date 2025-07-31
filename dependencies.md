@@ -57,12 +57,12 @@
 | [Apache Maven GPG Plugin][51]                           | [Apache-2.0][12]                            |
 | [Apache Maven Source Plugin][52]                        | [Apache License, Version 2.0][12]           |
 | [Apache Maven Javadoc Plugin][53]                       | [Apache-2.0][12]                            |
-| [Central Publishing Maven Plugin][54]                   | [The Apache License, Version 2.0][12]       |
-| [Maven Failsafe Plugin][55]                             | [Apache-2.0][12]                            |
-| [JaCoCo :: Maven Plugin][56]                            | [EPL-2.0][6]                                |
-| [Quality Summarizer Maven Plugin][57]                   | [MIT License][58]                           |
-| [error-code-crawler-maven-plugin][59]                   | [MIT License][60]                           |
-| [Git Commit Id Maven Plugin][61]                        | [GNU Lesser General Public License 3.0][62] |
+| [Nexus Staging Maven Plugin][54]                        | [Eclipse Public License][55]                |
+| [Maven Failsafe Plugin][56]                             | [Apache-2.0][12]                            |
+| [JaCoCo :: Maven Plugin][57]                            | [EPL-2.0][6]                                |
+| [Quality Summarizer Maven Plugin][58]                   | [MIT License][59]                           |
+| [error-code-crawler-maven-plugin][60]                   | [MIT License][61]                           |
+| [Git Commit Id Maven Plugin][62]                        | [GNU Lesser General Public License 3.0][63] |
 
 [0]: https://github.com/eclipse-ee4j/jsonp
 [1]: https://projects.eclipse.org/license/epl-2.0
@@ -118,12 +118,13 @@
 [51]: https://maven.apache.org/plugins/maven-gpg-plugin/
 [52]: https://maven.apache.org/plugins/maven-source-plugin/
 [53]: https://maven.apache.org/plugins/maven-javadoc-plugin/
-[54]: https://central.sonatype.org
-[55]: https://maven.apache.org/surefire/maven-failsafe-plugin/
-[56]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
-[57]: https://github.com/exasol/quality-summarizer-maven-plugin/
-[58]: https://github.com/exasol/quality-summarizer-maven-plugin/blob/main/LICENSE
-[59]: https://github.com/exasol/error-code-crawler-maven-plugin/
-[60]: https://github.com/exasol/error-code-crawler-maven-plugin/blob/main/LICENSE
-[61]: https://github.com/git-commit-id/git-commit-id-maven-plugin
-[62]: http://www.gnu.org/licenses/lgpl-3.0.txt
+[54]: http://www.sonatype.com/public-parent/nexus-maven-plugins/nexus-staging/nexus-staging-maven-plugin/
+[55]: http://www.eclipse.org/legal/epl-v10.html
+[56]: https://maven.apache.org/surefire/maven-failsafe-plugin/
+[57]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
+[58]: https://github.com/exasol/quality-summarizer-maven-plugin/
+[59]: https://github.com/exasol/quality-summarizer-maven-plugin/blob/main/LICENSE
+[60]: https://github.com/exasol/error-code-crawler-maven-plugin/
+[61]: https://github.com/exasol/error-code-crawler-maven-plugin/blob/main/LICENSE
+[62]: https://github.com/git-commit-id/git-commit-id-maven-plugin
+[63]: http://www.gnu.org/licenses/lgpl-3.0.txt
