@@ -18,5 +18,6 @@
     "sonarlint.connectedMode.project": {
         "connectionId": "exasol",
         "projectKey": "com.exasol:udf-debugging-java"
-    }
+    },
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
