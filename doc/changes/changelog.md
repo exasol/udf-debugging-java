@@ -1,5 +1,6 @@
 # Changes
 
+* [0.6.17](changes_0.6.17.md)
 * [0.6.16](changes_0.6.16.md)
 * [0.6.15](changes_0.6.15.md)
 * [0.6.14](changes_0.6.14.md)
