@@ -1,6 +1,6 @@
 # Udf Debugging Java 0.6.17, released 2025-07-31
 
-Code name: security fixes
+Code name: Fix CVE-2025-48924 in `org.apache.commons:commons-lang3:jar:3.16.0:compile`
 
 ## Summary
 
