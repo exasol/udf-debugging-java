@@ -18,7 +18,6 @@
 | Dependency                                      | License                           |
 | ----------------------------------------------- | --------------------------------- |
 | [JaCoCo :: Agent][5]                            | [EPL-2.0][6]                      |
-| [JUnit Jupiter Engine][15]                      | [Eclipse Public License v2.0][16] |
 | [JUnit Jupiter Params][15]                      | [Eclipse Public License v2.0][16] |
 | [mockito-junit-jupiter][17]                     | [MIT][18]                         |
 | [Hamcrest][19]                                  | [BSD-3-Clause][20]                |
@@ -47,7 +46,7 @@
 | [Project Keeper Maven plugin][38]                       | [The MIT License][39]                       |
 | [Apache Maven Compiler Plugin][40]                      | [Apache-2.0][12]                            |
 | [Apache Maven Enforcer Plugin][41]                      | [Apache-2.0][12]                            |
-| [Maven Flatten Plugin][42]                              | [Apache Software Licenese][12]              |
+| [Maven Flatten Plugin][42]                              | [Apache Software License][12]               |
 | [org.sonatype.ossindex.maven:ossindex-maven-plugin][43] | [ASL2][44]                                  |
 | [Maven Surefire Plugin][45]                             | [Apache-2.0][12]                            |
 | [Versions Maven Plugin][46]                             | [Apache License, Version 2.0][12]           |
@@ -79,7 +78,7 @@
 [12]: https://www.apache.org/licenses/LICENSE-2.0.txt
 [13]: http://www.slf4j.org
 [14]: https://opensource.org/license/mit
-[15]: https://junit.org/junit5/
+[15]: https://junit.org/
 [16]: https://www.eclipse.org/legal/epl-v20.html
 [17]: https://github.com/mockito/mockito
 [18]: https://opensource.org/licenses/MIT
