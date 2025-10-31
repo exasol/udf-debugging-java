@@ -7,8 +7,9 @@ sources:
 build:
   runnerOs: ubuntu-24.04
   exasolDbVersions:
-    - "8.34.0"
-    # UDFs in Exasol 7.1 with Ubuntu 20.04 will be fixed in the next Docker-DB release
+    - "2025.1.3"
+    - "8.29.12"
+    # UDFs in Exasol 7.1  will be fixed in the next Docker-DB release
     # - "7.1.30"
   workflows:
     - name: ci-build.yml
