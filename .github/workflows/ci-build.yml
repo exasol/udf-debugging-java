@@ -33,12 +33,11 @@ jobs:
       fail-fast: false
       matrix:
         exasol_db_version: [
-          2025.1.3,
-          8.29.12
+          2026.1.0
         ]
         
     env: {
-      DEFAULT_EXASOL_DB_VERSION: 2025.1.3
+      DEFAULT_EXASOL_DB_VERSION: 2026.1.0
     }
     steps:
       - name: Free Disk Space
@@ -65,7 +64,7 @@ jobs:
           cache: maven
       - name: Cache SonarCloud packages
         id: cache-sonar
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with: {
           path: ~/.sonar/cache,
           key: '${{ runner.os }}-sonar',
