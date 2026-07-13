@@ -63,7 +63,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <!-- Version 6 requires Java 17 -->
-            <version>6.1.1</version>
+            <version>5.14.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -133,7 +133,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>5.7.2</version>
+                <version>5.7.3</version>
                 <executions>
                     <execution>
                         <goals>
