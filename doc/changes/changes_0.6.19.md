@@ -51,7 +51,7 @@ In Eclipse Parsson published Maven Central artifacts before version 1.1.8, the J
 * Updated `com.exasol:test-db-builder-java:3.6.4` to `4.0.1`
 * Updated `org.itsallcode:junit5-system-extensions:1.2.2` to `1.2.3`
 * Updated `org.jacoco:org.jacoco.agent:0.8.14` to `0.8.15`
-* Updated `org.junit.jupiter:junit-jupiter-params:5.13.4` to `6.1.1`
+* Updated `org.junit.jupiter:junit-jupiter-params:5.13.4` to `5.14.4`
 * Updated `org.mockito:mockito-junit-jupiter:5.20.0` to `5.23.0`
 * Updated `org.testcontainers:testcontainers-junit-jupiter:2.0.1` to `2.0.5`
 
