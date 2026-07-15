@@ -7,6 +7,7 @@ sources:
 build:
   runnerOs: ubuntu-24.04
   exasolDbVersions:
+    - "2025.1.11" # LTS
     - "2026.1.0"
   workflows:
     - name: ci-build.yml

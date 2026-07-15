@@ -33,11 +33,12 @@ jobs:
       fail-fast: false
       matrix:
         exasol_db_version: [
+          2025.1.11,
           2026.1.0
         ]
         
     env: {
-      DEFAULT_EXASOL_DB_VERSION: 2026.1.0
+      DEFAULT_EXASOL_DB_VERSION: 2025.1.11
     }
     steps:
       - name: Free Disk Space
