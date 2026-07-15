@@ -46,7 +46,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-test-setup-abstraction-java</artifactId>
-            <version>2.1.11</version>
+            <version>3.0.0</version>
             <!-- This is not a compile-dependency since it would pull a lot of transitive
             dependencies (like the AWS SDK) into project where it's absolutely not
             needed. That's possible since we only use the classes from this dependencies
@@ -141,31 +141,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <compilerArgs>
-                        <!-- We disable `path` because of warnings like 
-                             "[path] bad path element "~/.m2/repository/fr/turri/aXMLRPC/1.13.0/jISO8601-0.2.jar": no such file or directory" -->
-                        <arg>-Xlint:all,-path</arg>
-                        <arg>-Werror</arg>
-                    </compilerArgs>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.ossindex.maven</groupId>
-                <artifactId>ossindex-maven-plugin</artifactId>
-                <configuration>
-                    <excludeVulnerabilityIds>
-                        <!-- Dependency fr.turri:aXMLRPC used for connecting to ExaOperation.
-                             We accept this vulnerability (CWE-833: Deadlock) as we assume that we only connect to the known endpoint ExaOperations. -->
-                        <exclude>CVE-2017-10355</exclude>
-                        <!-- False positive in OSS Index for Exasol's JDBC driver because the fix version is missing. -->
-                        <exclude>CVE-2024-55551</exclude>
-                    </excludeVulnerabilityIds>
-                </configuration>
             </plugin>
         </plugins>
     </build>

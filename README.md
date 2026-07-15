@@ -26,7 +26,6 @@ Install as maven dependency. You can get the dependency declaration by clicking 
 Typically, you use this package together with [test-db-builder-java](https://github.com/exasol/test-db-builder-java) and [exasol-testcontainers](https://github.com/exasol/exasol-testcontainers) as follows:
 
 ```java
-
 private static final ExasolContainer<?extends ExasolContainer<?>> EXASOL=new ExasolContainer<>();
 final UdfTestSetup udfTestSetup=new UdfTestSetup(getTestHostIp(),EXASOL.getDefaultBucket());
 final ExasolObjectFactory testDbBuilder=new ExasolObjectFactory(EXASOL.createConnection(),
@@ -51,7 +50,7 @@ This module installs a jacoco agent to the UDF JVM and receives the execution da
 
 This module requires additional maven configuration. Use  [project-keeper](https://github.com/exasol/project-keeper-maven-plugin) module `udf_coverage` to verify it.
 
-Please note that using a [JaCoCo agent](https://www.jacoco.org/jacoco/trunk/doc/agent.html) fails when running on Windows using a [Docker image](https://docs.docker.com/glossary/#container-image) in a Linux virtual machine, see  known issue [Failing Integration Tests on Windows](#known-issue:-failing-integration-tests-on-windows).
+Please note that using a [JaCoCo agent](https://www.jacoco.org/jacoco/trunk/doc/agent.html) fails when running on Windows using a [Docker image](https://docs.docker.com/glossary/#container-image) in a Linux virtual machine, see  known issue [Failing Integration Tests on Windows](#known-issue-failing-integration-tests-on-windows).
 
 ### JProfiler
 
