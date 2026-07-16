@@ -4,9 +4,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -21,10 +20,14 @@ class PushDownTestingIT {
     private static final String TABLE_NAME = "THE_TABLE";
 
     private static String loadAdapterScriptContent() {
-        try {
-            return Files.readString(Paths.get("src/test/resources/virtual_schema_stub.lua"), StandardCharsets.UTF_8);
+        try (InputStream adapterScriptStream = PushDownTestingIT.class.getClassLoader()
+                .getResourceAsStream("virtual_schema_stub.lua")) {
+            if (adapterScriptStream == null) {
+                throw new AssertionError("Failed to find adapter script resource on the classpath.");
+            }
+            return new String(adapterScriptStream.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException exception) {
-            throw new AssertionError("Failed to read adapter script file.", exception);
+            throw new AssertionError("Failed to read adapter script resource.", exception);
         }
     }
 
