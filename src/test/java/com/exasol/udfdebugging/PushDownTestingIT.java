@@ -42,9 +42,24 @@ class PushDownTestingIT {
         }
     }
 
+    @Test
+    void testGetSelectionThatIsSentToTheAdapter() throws SQLException {
+        try (
+                final TestSetup testSetup = new TestSetup();
+                final Statement statement = testSetup.getConnection().createStatement()
+        ) {
+            createVirtualSchema(statement);
+            final String pushDownSql = PushDownTesting.getSelectionThatIsSentToTheAdapter(statement,
+                    "SELECT THE_VALUE FROM " + VIRTUAL_SCHEMA_NAME + "." + TABLE_NAME
+                            + " WHERE THE_VALUE = 'something'");
+            assertThat(pushDownSql, equalTo(TABLE_NAME +".THE_VALUE='something'"));
+        }
+    }
+
     private void createVirtualSchema(final Statement statement) throws SQLException {
         statement.execute("DROP SCHEMA IF EXISTS " + VS_SCHEMA + "CASCADE");
         statement.execute("CREATE SCHEMA " + VS_SCHEMA);
+        statement.execute("CREATE TABLE ORIGIN_TABLE(THE_VALUE CHAR(9))");
         statement.execute("CREATE LUA ADAPTER SCRIPT " + VS_ADAPTER + " AS\n" + loadAdapterScriptContent() + "\n/");
         statement.execute("CREATE VIRTUAL SCHEMA " + VIRTUAL_SCHEMA_NAME + " USING " + VS_ADAPTER);
     }
