@@ -10,3 +10,8 @@ In this release we fixed Sonar findings and raised the code coverage ot over 80%
 
 * ISSUE_NUMBER: Fixed Sonar findings
 
+## Dependency Updates
+
+### Plugin Dependency Updates
+
+* Updated `org.apache.maven.plugins:maven-jar-plugin:3.1.2` to `3.5.0`
