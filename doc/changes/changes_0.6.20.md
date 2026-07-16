@@ -12,8 +12,3 @@ We added an integration test for `PushDownTesting`.
 
 * Fixed Sonar findings and raised test coverage. (PR #86)
 
-## Dependency Updates
-
-### Plugin Dependency Updates
-
-* Updated `org.apache.maven.plugins:maven-jar-plugin:3.1.2` to `3.5.0`
