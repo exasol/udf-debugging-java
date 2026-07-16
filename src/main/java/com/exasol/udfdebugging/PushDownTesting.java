@@ -21,9 +21,10 @@ public class PushDownTesting {
      * @return generated push down query
      * @throws SQLException if execution fails
      */
+    @SuppressWarnings("java:S2077") // Constructed SQL only used in tests.
     public static String getPushDownSql(final Statement statement, final String query) throws SQLException {
         try (final ResultSet pushDownSqlResult = statement
-                .executeQuery("SELECT PUSHDOWN_SQL FROM (EXPLAIN VIRTUAL " + query + ");")) {
+                .executeQuery("SELECT PUSHDOWN_SQL FROM (EXPLAIN VIRTUAL " + query + ")")) {
             pushDownSqlResult.next();
             return pushDownSqlResult.getString("PUSHDOWN_SQL");
         }
@@ -37,10 +38,11 @@ public class PushDownTesting {
      * @return selection (where clause)
      * @throws SQLException if SQL statement fails
      */
+    @SuppressWarnings("java:S2077") // Constructed SQL only used in tests.
     public static String getSelectionThatIsSentToTheAdapter(final Statement statement, final String query)
             throws SQLException {
         try (final ResultSet pushDownSqlResult = statement
-                .executeQuery("SELECT PUSHDOWN_JSON FROM (EXPLAIN VIRTUAL " + query + ");")) {
+                .executeQuery("SELECT PUSHDOWN_JSON FROM (EXPLAIN VIRTUAL " + query + ")")) {
             pushDownSqlResult.next();
             final String pushdownJson = pushDownSqlResult.getString("PUSHDOWN_JSON");
             try (final JsonReader reader = Json.createReader(new StringReader(pushdownJson))) {
