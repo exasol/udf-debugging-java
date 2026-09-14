@@ -46,7 +46,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-test-setup-abstraction-java</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1</version>
             <!-- This is not a compile-dependency since it would pull a lot of transitive
             dependencies (like the AWS SDK) into project where it's absolutely not
             needed. That's possible since we only use the classes from this dependencies
