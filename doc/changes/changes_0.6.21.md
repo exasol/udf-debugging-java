@@ -19,7 +19,7 @@ This release fixes the following vulnerabilities by pinning the version of trans
 
 ## Features
 
-* ISSUE_NUMBER: description
+* Fixed CVEs in transitive dependency `org.ow2.asm:*` (PR# 91)
 
 ## Dependency Updates
 
