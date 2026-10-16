@@ -6,9 +6,6 @@
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-java/</url>
-    <properties>
-        <jacoco.version>0.8.15</jacoco.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>jakarta.json</groupId>
@@ -29,19 +26,38 @@
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>org.jacoco.core</artifactId>
-            <version>${jacoco.version}</version>
+            <version>0.8.15</version>
         </dependency>
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>org.jacoco.agent</artifactId>
-            <version>${jacoco.version}</version>
+            <version>0.8.15</version>
             <classifier>runtime</classifier>
             <scope>test</scope>
         </dependency>
         <dependency>
+            <!-- Pinned to fix CVE-2026-110257, CVE-2026-110258, CVE-2026-110259, CVE-2026-110260, CVE-2026-110261,
+             CVE-2026-110263 from 9.10.1-->
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>9.11</version>
+        </dependency>
+        <dependency>
+            <!-- Pinned to fix CVE-2026-110262, CVE-2026-110270 from 9.10.1-->
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-commons</artifactId>
+            <version>9.11</version>
+        </dependency>
+        <dependency>
+            <!-- Pinned to stay in sync with the other asm dependencies -->
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-tree</artifactId>
+            <version>9.11</version>
+        </dependency>
+        <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>bucketfs-java</artifactId>
-            <version>5.0.0</version>
+            <version>5.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.exasol</groupId>
@@ -69,7 +85,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>5.23.0</version>
+            <version>5.24.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -94,7 +110,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>test-db-builder-java</artifactId>
-            <version>4.0.2</version>
+            <version>4.0.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -107,13 +123,14 @@
             <!-- Enable log output for integration tests -->
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-jdk14</artifactId>
-            <version>2.0.19</version>
+            <version>2.0.20</version>
         </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.11.0</version>
                 <executions>
                     <execution>
                         <id>copy-jacoco</id>
@@ -133,7 +150,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>5.7.5</version>
+                <version>5.7.7</version>
                 <executions>
                     <execution>
                         <goals>
