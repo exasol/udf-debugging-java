@@ -1,4 +1,4 @@
-# Udf Debugging Java 0.6.21, released 2026-??-??
+# Udf Debugging Java 0.6.21, released 2026-10-16
 
 Code name:
 
