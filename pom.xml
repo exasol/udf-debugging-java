@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>udf-debugging-java</artifactId>
-    <version>0.6.21</version>
+    <version>0.6.22</version>
     <name>udf-debugging-java</name>
     <description>Utilities for debugging, profiling and code coverage measure for UDFs.</description>
     <url>https://github.com/exasol/udf-debugging-java/</url>
@@ -37,22 +37,22 @@
         </dependency>
         <dependency>
             <!-- Pinned to fix CVE-2026-110257, CVE-2026-110258, CVE-2026-110259, CVE-2026-110260, CVE-2026-110261,
-             CVE-2026-110263 from 9.10.1-->
+             CVE-2026-110263 from 9.10.1 and CVE-2026-112046 from 9.11 (org.jacoco.agent) -->
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
-            <version>9.11</version>
+            <version>9.11.1</version>
         </dependency>
         <dependency>
-            <!-- Pinned to fix CVE-2026-110262, CVE-2026-110270 from 9.10.1-->
+            <!-- Pinned to fix CVE-2026-110262, CVE-2026-110270 from 9.10.1 (org.jacoco.agent) -->
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm-commons</artifactId>
-            <version>9.11</version>
+            <version>9.11.1</version>
         </dependency>
         <dependency>
-            <!-- Pinned to stay in sync with the other asm dependencies -->
+            <!-- Pinned to stay in sync with the other asm dependencies (org.jacoco.agent) -->
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm-tree</artifactId>
-            <version>9.11</version>
+            <version>9.11.1</version>
         </dependency>
         <dependency>
             <groupId>com.exasol</groupId>
