@@ -164,7 +164,7 @@
     <parent>
         <artifactId>udf-debugging-java-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>0.6.21</version>
+        <version>0.6.22</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
